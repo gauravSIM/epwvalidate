@@ -10,11 +10,11 @@ import (
 	"testing"
 )
 
-// TestRealFiles: every example file in EPW_format/epw_examples must be valid
+// TestRealFiles: every example file in ../EPW_format/epw_examples must be valid
 // (SPEC.md §11).
 // Set EPWVALIDATE_SAMPLES to a folder to also check every .epw file below it.
 func TestRealFiles(t *testing.T) {
-	files, _ := filepath.Glob("EPW_format/epw_examples/*.epw")
+	files, _ := filepath.Glob("../EPW_format/epw_examples/*.epw")
 	if dir := os.Getenv("EPWVALIDATE_SAMPLES"); dir != "" {
 		err := filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
 			if err != nil {
@@ -57,7 +57,7 @@ func TestRealFiles(t *testing.T) {
 // (named <RULE>__<description>.epw) without changing any code.
 func TestFixtureFiles(t *testing.T) {
 	for _, dir := range []string{"partial", "broken"} {
-		files, _ := filepath.Glob(filepath.Join("testdata", dir, "*.epw"))
+		files, _ := filepath.Glob(filepath.Join("..", "testdata", dir, "*.epw"))
 		if len(files) == 0 {
 			t.Fatalf("no files in testdata/%s; run: go test -run TestFixtures -update", dir)
 		}
@@ -208,7 +208,7 @@ func TestValidateReader(t *testing.T) {
 	if err != nil || !rep.Valid {
 		t.Errorf("Validate(reader): err=%v valid=%v", err, rep.Valid)
 	}
-	if _, err := ValidateFile("testdata/does-not-exist.epw"); err == nil {
+	if _, err := ValidateFile("../testdata/does-not-exist.epw"); err == nil {
 		t.Error("ValidateFile on a missing file should return an error")
 	}
 }

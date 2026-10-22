@@ -10,9 +10,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io"
 	"os"
-	"sort"
 
 	"epwvalidate"
 )
@@ -35,7 +33,7 @@ func main() {
 	}
 
 	exit := 0
-	var reports []fileReport
+	reports := []fileReport{}
 	for _, path := range flag.Args() {
 		rep, err := epwvalidate.ValidateFile(path)
 		if err != nil {
@@ -49,45 +47,17 @@ func main() {
 		if *asJSON {
 			reports = append(reports, fileReport{File: path, Report: rep})
 		} else {
-			printReport(os.Stdout, path, rep)
+			fmt.Print(epwvalidate.FormatText(path, rep))
 		}
 	}
 	if *asJSON {
 		enc := json.NewEncoder(os.Stdout)
 		enc.SetIndent("", "  ")
+		enc.SetEscapeHTML(false)
 		if err := enc.Encode(reports); err != nil {
 			fmt.Fprintln(os.Stderr, err)
 			exit = 2
 		}
 	}
 	os.Exit(exit)
-}
-
-func printReport(w io.Writer, path string, rep epwvalidate.Report) {
-	s := rep.Summary
-	status := "VALID"
-	if !rep.Valid {
-		status = "INVALID"
-	}
-	fmt.Fprintf(w, "%s: %s - %d data rows", path, status, s.DataRows)
-	if s.ExpectedRows >= 0 {
-		fmt.Fprintf(w, " (DATA PERIODS declares %d)", s.ExpectedRows)
-	}
-	fmt.Fprintf(w, ", %d errors, %d warnings\n", s.ErrorCount, s.WarningCount)
-	for _, is := range rep.Errors {
-		fmt.Fprintf(w, "  error    %s\n", is)
-	}
-	for _, is := range rep.Warnings {
-		fmt.Fprintf(w, "  warning  %s\n", is)
-	}
-	var more []string
-	for rule, n := range s.RuleCounts {
-		if n > epwvalidate.MaxIssuesPerRule {
-			more = append(more, rule)
-		}
-	}
-	sort.Strings(more)
-	for _, rule := range more {
-		fmt.Fprintf(w, "  ... and %d more [%s]\n", s.RuleCounts[rule]-epwvalidate.MaxIssuesPerRule, rule)
-	}
 }

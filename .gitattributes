@@ -1,0 +1,4 @@
+# Keep test and example files byte-for-byte: line endings, BOMs and invalid
+# bytes in them are what the tests check.
+*.epw -text
+testdata/** -text

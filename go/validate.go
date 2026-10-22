@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 	"unicode/utf8"
@@ -76,6 +77,39 @@ type Report struct {
 	Errors   []Issue `json:"errors"`
 	Warnings []Issue `json:"warnings"`
 	Summary  Summary `json:"summary"`
+}
+
+// FormatText returns the report as the command-line tool prints it: a summary
+// line, one line per listed issue, and a line per rule with unlisted issues.
+func FormatText(name string, rep Report) string {
+	var b strings.Builder
+	s := rep.Summary
+	status := "VALID"
+	if !rep.Valid {
+		status = "INVALID"
+	}
+	fmt.Fprintf(&b, "%s: %s - %d data rows", name, status, s.DataRows)
+	if s.ExpectedRows >= 0 {
+		fmt.Fprintf(&b, " (DATA PERIODS declares %d)", s.ExpectedRows)
+	}
+	fmt.Fprintf(&b, ", %d errors, %d warnings\n", s.ErrorCount, s.WarningCount)
+	for _, is := range rep.Errors {
+		fmt.Fprintf(&b, "  error    %s\n", is)
+	}
+	for _, is := range rep.Warnings {
+		fmt.Fprintf(&b, "  warning  %s\n", is)
+	}
+	var more []string
+	for rule, n := range s.RuleCounts {
+		if n > MaxIssuesPerRule {
+			more = append(more, rule)
+		}
+	}
+	sort.Strings(more)
+	for _, rule := range more {
+		fmt.Fprintf(&b, "  ... and %d more [%s]\n", s.RuleCounts[rule]-MaxIssuesPerRule, rule)
+	}
+	return b.String()
 }
 
 // MaxIssuesPerRule limits how many issues of one rule are listed in a Report.

@@ -1,0 +1,5766 @@
+{
+  "EPW_format/epw_examples/AUT_KA_Dellach.im.Drautal.112700_TMYx.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9*9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 226
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/AUT_KA_Klagenfurt.AP.113310_TMYx.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 204
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/IND_AN_Car.Nicobar.Afb.433680_TMYx.2009-2023.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9*9?9?9*9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 618
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/ITA_PM_Torino.AF.160595_TMYx.2009-2023.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9*9?9?9*9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 67
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_AG_Gjerstad.014490_TMYx.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 80
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_AK_Hurdal.NOR076_NORCERRA.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "__________________*_____________*_*___*_*_*",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 10,
+        "field": "Extraterrestrial Horizontal Radiation",
+        "message": "Extraterrestrial Horizontal Radiation is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 11,
+        "field": "Extraterrestrial Direct Normal Radiation",
+        "message": "Extraterrestrial Direct Normal Radiation is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 16,
+        "field": "Global Horizontal Illuminance",
+        "message": "Global Horizontal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 17,
+        "field": "Direct Normal Illuminance",
+        "message": "Direct Normal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 18,
+        "field": "Diffuse Horizontal Illuminance",
+        "message": "Diffuse Horizontal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 19,
+        "field": "Zenith Luminance",
+        "message": "Zenith Luminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 29,
+        "field": "Aerosol Optical Depth",
+        "message": "Aerosol Optical Depth is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 30,
+        "field": "Snow Depth",
+        "message": "Snow Depth is missing on every row"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 9,
+      "missing": {
+        "Aerosol Optical Depth": 8760,
+        "Diffuse Horizontal Illuminance": 8760,
+        "Direct Normal Illuminance": 8760,
+        "Extraterrestrial Direct Normal Radiation": 8760,
+        "Extraterrestrial Horizontal Radiation": 8760,
+        "Global Horizontal Illuminance": 8760,
+        "Snow Depth": 8760,
+        "Zenith Luminance": 8760
+      },
+      "ruleCounts": {
+        "D-MIS-3": 8,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_AK_Oslo.AP-Gardermoen.013840_TMYx.2007-2021.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 123
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_BU_Gulsvik.013760_TMYx.2009-2023.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9*9?9?9?9*9?9?9*9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 126
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_BU_Kongsberg.014730_NORCERRA.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "__________________*_____________*_*___*_*_*",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 10,
+        "field": "Extraterrestrial Horizontal Radiation",
+        "message": "Extraterrestrial Horizontal Radiation is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 11,
+        "field": "Extraterrestrial Direct Normal Radiation",
+        "message": "Extraterrestrial Direct Normal Radiation is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 16,
+        "field": "Global Horizontal Illuminance",
+        "message": "Global Horizontal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 17,
+        "field": "Direct Normal Illuminance",
+        "message": "Direct Normal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 18,
+        "field": "Diffuse Horizontal Illuminance",
+        "message": "Diffuse Horizontal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 19,
+        "field": "Zenith Luminance",
+        "message": "Zenith Luminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 29,
+        "field": "Aerosol Optical Depth",
+        "message": "Aerosol Optical Depth is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 30,
+        "field": "Snow Depth",
+        "message": "Snow Depth is missing on every row"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 9,
+      "missing": {
+        "Aerosol Optical Depth": 8760,
+        "Diffuse Horizontal Illuminance": 8760,
+        "Direct Normal Illuminance": 8760,
+        "Extraterrestrial Direct Normal Radiation": 8760,
+        "Extraterrestrial Horizontal Radiation": 8760,
+        "Global Horizontal Illuminance": 8760,
+        "Snow Depth": 8760,
+        "Zenith Luminance": 8760
+      },
+      "ruleCounts": {
+        "D-MIS-3": 8,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_BU_Rollag.NOR155_NORCERRA.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "__________________*_____________*_*___*_*_*",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 10,
+        "field": "Extraterrestrial Horizontal Radiation",
+        "message": "Extraterrestrial Horizontal Radiation is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 11,
+        "field": "Extraterrestrial Direct Normal Radiation",
+        "message": "Extraterrestrial Direct Normal Radiation is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 16,
+        "field": "Global Horizontal Illuminance",
+        "message": "Global Horizontal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 17,
+        "field": "Direct Normal Illuminance",
+        "message": "Direct Normal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 18,
+        "field": "Diffuse Horizontal Illuminance",
+        "message": "Diffuse Horizontal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 19,
+        "field": "Zenith Luminance",
+        "message": "Zenith Luminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 29,
+        "field": "Aerosol Optical Depth",
+        "message": "Aerosol Optical Depth is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 30,
+        "field": "Snow Depth",
+        "message": "Snow Depth is missing on every row"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 9,
+      "missing": {
+        "Aerosol Optical Depth": 8760,
+        "Diffuse Horizontal Illuminance": 8760,
+        "Direct Normal Illuminance": 8760,
+        "Extraterrestrial Direct Normal Radiation": 8760,
+        "Extraterrestrial Horizontal Radiation": 8760,
+        "Global Horizontal Illuminance": 8760,
+        "Snow Depth": 8760,
+        "Zenith Luminance": 8760
+      },
+      "ruleCounts": {
+        "D-MIS-3": 8,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_FI_Slettnes.Lighthouse.010780_TMYx.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 214
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_OS_Alna.014870_TMYx.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 139
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "EPW_format/epw_examples/NOR_OS_Oslo.Blindern.014920_TMYx.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "8760 of 8760 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 8768,
+      "dataRows": 8760,
+      "expectedRows": 8760,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 114
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-MIS-1__dry_bulb_all_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-MIS-1",
+        "line": 0,
+        "column": 6,
+        "field": "Dry Bulb Temperature",
+        "message": "Dry Bulb Temperature is missing on every row; the file cannot be used for simulation"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {
+        "Dry Bulb Temperature": 168
+      },
+      "ruleCounts": {
+        "D-MIS-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-MIS-1__global_horizontal_all_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-MIS-1",
+        "line": 0,
+        "column": 13,
+        "field": "Global Horizontal Radiation",
+        "message": "Global Horizontal Radiation is missing on every row; the file cannot be used for simulation"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {
+        "Global Horizontal Radiation": 168
+      },
+      "ruleCounts": {
+        "D-MIS-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-MIS-1__wind_speed_all_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-MIS-1",
+        "line": 0,
+        "column": 21,
+        "field": "Wind Speed",
+        "message": "Wind Speed is missing on every row; the file cannot be used for simulation"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {
+        "Wind Speed": 168
+      },
+      "ruleCounts": {
+        "D-MIS-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__dew_point_80.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 7,
+        "field": "Dew Point Temperature",
+        "value": "80",
+        "message": "Dew Point Temperature = 80 is outside the allowed range > -70 and < 70 (missing values are >= 99.9)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-CON-1",
+        "line": 79,
+        "column": 7,
+        "field": "Dew Point Temperature",
+        "value": "80",
+        "message": "dew point 80 is above dry bulb 1.40"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 2,
+      "missing": {},
+      "ruleCounts": {
+        "D-CON-1": 1,
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__direct_normal_negative.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 14,
+        "field": "Direct Normal Radiation",
+        "value": "-1",
+        "message": "Direct Normal Radiation = -1 is outside the allowed range >= 0 (missing values are >= 9999)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__dry_bulb_75.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 6,
+        "field": "Dry Bulb Temperature",
+        "value": "75.0",
+        "message": "Dry Bulb Temperature = 75.0 is outside the allowed range > -70 and < 70 (missing values are >= 99.9)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__dry_bulb_minus_70.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 6,
+        "field": "Dry Bulb Temperature",
+        "value": "-70",
+        "message": "Dry Bulb Temperature = -70 is outside the allowed range > -70 and < 70 (missing values are >= 99.9)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-CON-1",
+        "line": 79,
+        "column": 7,
+        "field": "Dew Point Temperature",
+        "value": "-1.90",
+        "message": "dew point -1.90 is above dry bulb -70"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 2,
+      "missing": {},
+      "ruleCounts": {
+        "D-CON-1": 1,
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__global_horizontal_negative.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 13,
+        "field": "Global Horizontal Radiation",
+        "value": "-5",
+        "message": "Global Horizontal Radiation = -5 is outside the allowed range >= 0 (missing values are >= 9999)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__illuminance_negative.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 16,
+        "field": "Global Horizontal Illuminance",
+        "value": "-100",
+        "message": "Global Horizontal Illuminance = -100 is outside the allowed range >= 0 (missing values are >= 999900)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__opaque_sky_cover_negative.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 23,
+        "field": "Opaque Sky Cover",
+        "value": "-1",
+        "message": "Opaque Sky Cover = -1 is outside the allowed range >= 0 and <= 10 (missing values are >= 99)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__pressure_30000.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 9,
+        "field": "Atmospheric Station Pressure",
+        "value": "30000",
+        "message": "Atmospheric Station Pressure = 30000 is outside the allowed range > 31000 and < 120000 (missing values are >= 999999)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__relative_humidity_120.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 8,
+        "field": "Relative Humidity",
+        "value": "120",
+        "message": "Relative Humidity = 120 is outside the allowed range >= 0 and <= 110 (missing values are >= 999)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-CON-2",
+        "line": 79,
+        "column": 8,
+        "field": "Relative Humidity",
+        "value": "120",
+        "message": "relative humidity 120 is above 100"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 2,
+      "missing": {},
+      "ruleCounts": {
+        "D-CON-2": 1,
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__total_sky_cover_11.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 22,
+        "field": "Total Sky Cover",
+        "value": "11",
+        "message": "Total Sky Cover = 11 is outside the allowed range >= 0 and <= 10 (missing values are >= 99)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__wind_direction_400.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 20,
+        "field": "Wind Direction",
+        "value": "400",
+        "message": "Wind Direction = 400 is outside the allowed range >= 0 and <= 360 (missing values are >= 999)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-RNG-1__wind_speed_45.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-RNG-1",
+        "line": 79,
+        "column": 21,
+        "field": "Wind Speed",
+        "value": "45",
+        "message": "Wind Speed = 45 is outside the allowed range >= 0 and <= 40 (missing values are >= 999)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-RNG-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-1__row_with_34_fields.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-1",
+        "line": 29,
+        "column": -1,
+        "message": "row has 34 fields, expected 35"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "167 of 167 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-1__row_with_36_fields.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-1",
+        "line": 29,
+        "column": -1,
+        "message": "row has 36 fields, expected 35"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "167 of 167 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-1": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-2__hour_not_integer.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-2",
+        "line": 39,
+        "column": 3,
+        "field": "Hour",
+        "value": "7.5",
+        "message": "Hour \"7.5\" is not a whole number"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-2": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-3__dry_bulb_text.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-3",
+        "line": 49,
+        "column": 6,
+        "field": "Dry Bulb Temperature",
+        "value": "abc",
+        "message": "Dry Bulb Temperature \"abc\" is not a number"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-3": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-3__pressure_empty.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-3",
+        "line": 49,
+        "column": 9,
+        "field": "Atmospheric Station Pressure",
+        "message": "Atmospheric Station Pressure \"\" is not a number"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-3": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-3__wind_speed_nan.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-3",
+        "line": 49,
+        "column": 21,
+        "field": "Wind Speed",
+        "value": "NaN",
+        "message": "Wind Speed \"NaN\" is not a number"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-3": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-4__weather_codes_8_digits.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-4",
+        "line": 59,
+        "column": 27,
+        "field": "Present Weather Codes",
+        "value": "92999999",
+        "message": "present weather codes \"92999999\" must be exactly 9 digits"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-4": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-4__weather_codes_letters.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-4",
+        "line": 59,
+        "column": 27,
+        "field": "Present Weather Codes",
+        "value": "9299999x9",
+        "message": "present weather codes \"9299999x9\" must be exactly 9 digits"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-4": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-5__weather_observation_5.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-5",
+        "line": 59,
+        "column": 26,
+        "field": "Present Weather Observation",
+        "value": "5",
+        "message": "present weather observation 5 must be 0 or 9"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-5": 1,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-ROW-7__empty_flags.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-ROW-7",
+        "line": 69,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "message": "data source and uncertainty flags are empty"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "167 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-ROW-7": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-1__hour_0.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-1",
+        "line": 89,
+        "column": -1,
+        "value": "1/11 hour 0",
+        "message": "month 1, day 11, hour 0 is not a valid time (month 1-12, a day that exists in the month, hour 1-24)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-1": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-1__hour_25.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-1",
+        "line": 89,
+        "column": -1,
+        "value": "1/11 hour 25",
+        "message": "month 1, day 11, hour 25 is not a valid time (month 1-12, a day that exists in the month, hour 1-24)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-1": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-1__january_32.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-1",
+        "line": 89,
+        "column": -1,
+        "value": "1/32 hour 9",
+        "message": "month 1, day 32, hour 9 is not a valid time (month 1-12, a day that exists in the month, hour 1-24)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-1": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-1__month_13.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-1",
+        "line": 89,
+        "column": -1,
+        "value": "13/11 hour 9",
+        "message": "month 13, day 11, hour 9 is not a valid time (month 1-12, a day that exists in the month, hour 1-24)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-1": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-2__minute_61.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 89,
+        "column": 4,
+        "field": "Minute",
+        "value": "61",
+        "message": "minute 61 is outside 0-60"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-2": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-2__subhourly_wrong_minutes.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 9,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 10,
+        "column": -1,
+        "value": "1/8/2009 hour 1",
+        "message": "expected 1/8 hour 1 step 2, found 1/8/2009 hour 1 (rows must follow each other one time step apart)"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 11,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 13,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 15,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 17,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 19,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 21,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 23,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 25,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 27,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 29,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 31,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 33,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 35,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 37,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 39,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 41,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 43,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 45,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-2",
+        "line": 47,
+        "column": 4,
+        "field": "Minute",
+        "value": "0",
+        "message": "minute 0: with 2 records per hour the minutes must be 30, 60"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "48 of 48 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 56,
+      "dataRows": 48,
+      "expectedRows": 48,
+      "periods": 1,
+      "recordsPerHour": 2,
+      "errorCount": 25,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-2": 24,
+        "D-SEQ-3": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-3__one_row_deleted.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 109,
+        "column": -1,
+        "value": "1/12/2009 hour 6",
+        "message": "expected 1/12/2009 hour 5, found 1/12/2009 hour 6 (rows must follow each other one time step apart)"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 167 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "167 of 167 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 175,
+      "dataRows": 167,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 2,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-3": 1,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-3__one_row_duplicated.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 110,
+        "column": -1,
+        "value": "1/12/2009 hour 5",
+        "message": "expected 1/12/2009 hour 6, found 1/12/2009 hour 5 (rows must follow each other one time step apart)"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 169 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "169 of 169 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 177,
+      "dataRows": 169,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 2,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-3": 1,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-3__second_period_starts_wrong_day.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 753,
+        "column": -1,
+        "value": "7/1/2019 hour 1",
+        "message": "data period 2 (Jul) starts at 7/2, but its first row is 7/1/2019 hour 1"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "1464 of 1464 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 1472,
+      "dataRows": 1464,
+      "expectedRows": 1464,
+      "periods": 2,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 6
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-3": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-3__starts_on_wrong_day.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 9,
+        "column": -1,
+        "value": "1/9/2009 hour 1",
+        "message": "data period 1 (Week) starts at 1/8, but its first row is 1/9/2009 hour 1"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 144 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "144 of 144 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 152,
+      "dataRows": 144,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 2,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-3": 1,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-3__two_rows_swapped.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 109,
+        "column": -1,
+        "value": "1/12/2009 hour 6",
+        "message": "expected 1/12/2009 hour 5, found 1/12/2009 hour 6 (rows must follow each other one time step apart)"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 110,
+        "column": -1,
+        "value": "1/12/2009 hour 5",
+        "message": "expected 1/12/2009 hour 7, found 1/12/2009 hour 5 (rows must follow each other one time step apart)"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 111,
+        "column": -1,
+        "value": "1/12/2009 hour 7",
+        "message": "expected 1/12/2009 hour 6, found 1/12/2009 hour 7 (rows must follow each other one time step apart)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 3,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-3": 3
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-4__mdy_period_wrong_year.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-4",
+        "line": 33,
+        "column": 0,
+        "field": "Year",
+        "value": "2020",
+        "message": "year 2020, expected 2019 (data period 1 has m/d/y dates)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "48 of 48 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 56,
+      "dataRows": 48,
+      "expectedRows": 48,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-4": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-4__year_changes_mid_month.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-4",
+        "line": 59,
+        "column": 0,
+        "field": "Year",
+        "value": "1999",
+        "message": "year changes from 2009 to 1999 inside month 1; it may change only when the month changes"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-4": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-5__feb29_missing_with_leap_yes.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 681,
+        "column": -1,
+        "value": "3/1/2020 hour 1",
+        "message": "29 February 2020 is missing: the leap-year field is Yes and 2020 is a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (2/1-3/5, 1 per hour) declares 816 rows, but the file has 792 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "792 of 792 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 800,
+      "dataRows": 792,
+      "expectedRows": 816,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 2,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 4
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-5": 1,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-5__feb29_rows_in_non_leap_year.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 681,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 682,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 683,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 684,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 685,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 686,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 687,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 688,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 689,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 690,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 691,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 692,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 693,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 694,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 695,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 696,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 697,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 698,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 699,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 700,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but 2019 is not a leap year"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (2/1-3/5, 1 per hour) declares 792 rows, but the file has 816 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "816 of 816 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 824,
+      "dataRows": 816,
+      "expectedRows": 792,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 25,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 4
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-5": 24,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-5__feb29_rows_with_leap_no.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 681,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 682,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 683,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 684,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 685,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 686,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 687,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 688,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 689,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 690,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 691,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 692,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 693,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 694,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 695,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 696,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 697,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 698,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 699,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-5",
+        "line": 700,
+        "column": 2,
+        "field": "Day",
+        "value": "29",
+        "message": "row for 29 February, but the leap-year field is No"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (2/1-3/5, 1 per hour) declares 792 rows, but the file has 816 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "816 of 816 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 824,
+      "dataRows": 816,
+      "expectedRows": 792,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 25,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 4
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-5": 24,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-6__declares_month_has_week.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 9,
+        "column": -1,
+        "value": "1/8/2009 hour 1",
+        "message": "data period 1 (January) starts at 1/1, but its first row is 1/8/2009 hour 1"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (1/1-1/31, 1 per hour) declares 744 rows, but the file has 168 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 744,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 2,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-3": 1,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-6__extra_day_after_period.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 192 data rows; 24 rows come after the last period ends (first at line 177)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "192 of 192 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 200,
+      "dataRows": 192,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-6__last_day_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 144 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "144 of 144 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 152,
+      "dataRows": 144,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/D-SEQ-6__no_data_rows.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 0 data rows"
+      }
+    ],
+    "warnings": [],
+    "summary": {
+      "lines": 8,
+      "dataRows": 0,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 0,
+      "missing": {},
+      "ruleCounts": {
+        "D-SEQ-6": 1
+      }
+    }
+  },
+  "testdata/broken/F-1__empty_file.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "F-1",
+        "line": 0,
+        "column": -1,
+        "message": "the file is empty"
+      }
+    ],
+    "warnings": [],
+    "summary": {
+      "lines": 0,
+      "dataRows": 0,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 0,
+      "missing": {},
+      "ruleCounts": {
+        "F-1": 1
+      }
+    }
+  },
+  "testdata/broken/F-1__latin1_city_name.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "F-1",
+        "line": 1,
+        "column": -1,
+        "message": "line is not valid UTF-8; save the file as UTF-8"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "F-1": 1
+      }
+    }
+  },
+  "testdata/broken/F-2__utf8_bom.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "F-2",
+        "line": 1,
+        "column": -1,
+        "message": "the file starts with a UTF-8 byte-order mark (BOM); save it without BOM"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "F-2": 1
+      }
+    }
+  },
+  "testdata/broken/F-4__blank_line_in_data.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "F-4",
+        "line": 19,
+        "column": -1,
+        "message": "empty line inside the data"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 177,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "F-4": 1
+      }
+    }
+  },
+  "testdata/broken/F-5__semicolon_line_end.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "F-5",
+        "line": 14,
+        "column": -1,
+        "message": "line ends with ';' (semicolons do not end lines in EPW)"
+      },
+      {
+        "severity": "error",
+        "rule": "D-ROW-3",
+        "line": 14,
+        "column": 34,
+        "field": "Liquid Precipitation Quantity",
+        "value": "0.0;",
+        "message": "Liquid Precipitation Quantity \"0.0;\" is not a number"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 2,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-3": 1,
+        "D-ROW-6": 1,
+        "F-5": 1
+      }
+    }
+  },
+  "testdata/broken/F-6__quote_in_data_row.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "F-6",
+        "line": 12,
+        "column": -1,
+        "message": "data rows must not contain double quotes"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "F-6": 1
+      }
+    }
+  },
+  "testdata/broken/F-6__quoted_city_with_comma.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "F-6",
+        "line": 1,
+        "column": -1,
+        "field": "LOCATION",
+        "message": "LOCATION must not contain double quotes; many EPW readers split this line on bare commas"
+      },
+      {
+        "severity": "error",
+        "rule": "H-LOC-1",
+        "line": 1,
+        "column": -1,
+        "field": "LOCATION",
+        "message": "LOCATION has 11 fields, expected 10 (keyword, city, region, country, source, WMO, latitude, longitude, time zone, elevation)"
+      },
+      {
+        "severity": "error",
+        "rule": "H-LOC-4",
+        "line": 1,
+        "column": 6,
+        "field": "Latitude",
+        "value": "013840",
+        "message": "Latitude = 013840 is outside the allowed range >= -90 and <= 90"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "H-LOC-8",
+        "line": 1,
+        "column": 8,
+        "field": "Time Zone",
+        "value": "11.08000",
+        "message": "time zone 11.08 h is far from the 4 h expected at longitude 60.2064; check the sign"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 3,
+      "warningCount": 2,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "F-6": 1,
+        "H-LOC-1": 1,
+        "H-LOC-4": 1,
+        "H-LOC-8": 1
+      }
+    }
+  },
+  "testdata/broken/H-COM-1__comments_1_empty.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-COM-1",
+        "line": 6,
+        "column": 1,
+        "field": "COMMENTS 1",
+        "message": "COMMENTS 1 has no text"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-COM-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-COM-1__comments_2_keyword_only.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-COM-1",
+        "line": 7,
+        "column": 1,
+        "field": "COMMENTS 2",
+        "message": "COMMENTS 2 has no text"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-COM-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-DC-1__design_conditions_count_not_number.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DC-1",
+        "line": 2,
+        "column": 1,
+        "field": "Number of Design Conditions",
+        "value": "x",
+        "message": "Number of Design Conditions \"x\" is not a whole number >= 0"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DC-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-DC-2__design_conditions_0_with_data.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DC-2",
+        "line": 2,
+        "column": 2,
+        "field": "DESIGN CONDITIONS",
+        "message": "number of design conditions is 0, but the record has more fields"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DC-2": 1
+      }
+    }
+  },
+  "testdata/broken/H-DC-4__design_conditions_cooling_label_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DC-4",
+        "line": 2,
+        "column": 20,
+        "field": "Heating value",
+        "message": "Heating value at field 21 is empty"
+      },
+      {
+        "severity": "error",
+        "rule": "H-DC-4",
+        "line": 2,
+        "column": 53,
+        "field": "Heating value",
+        "value": "Extremes",
+        "message": "Heating value \"Extremes\" at field 54 is not a number"
+      },
+      {
+        "severity": "error",
+        "rule": "H-DC-4",
+        "line": 2,
+        "column": 81,
+        "field": "DESIGN CONDITIONS",
+        "message": "expected the Cooling section at field 82, found \"\""
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 3,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DC-4": 3
+      }
+    }
+  },
+  "testdata/broken/H-DC-4__design_conditions_cut_short.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DC-4",
+        "line": 2,
+        "column": 40,
+        "field": "DESIGN CONDITIONS",
+        "message": "expected the Extremes section at field 41, found \"\""
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DC-4": 1
+      }
+    }
+  },
+  "testdata/broken/H-DC-4__design_conditions_value_empty.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DC-4",
+        "line": 2,
+        "column": 30,
+        "field": "Cooling value",
+        "message": "Cooling value at field 31 is empty"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DC-4": 1
+      }
+    }
+  },
+  "testdata/broken/H-DC-5__design_conditions_extremes_short.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DC-5",
+        "line": 2,
+        "column": -1,
+        "field": "DESIGN CONDITIONS",
+        "message": "2025 ASHRAE Handbook design conditions have 16 Heating, 32 Cooling and 27 Extremes values; found 16, 32 and 24"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DC-5": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-1__zero_data_periods.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-1",
+        "line": 8,
+        "column": 1,
+        "field": "Number of Data Periods",
+        "value": "0",
+        "message": "number of data periods \"0\" is not a whole number >= 1"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-2__seven_records_per_hour.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-2",
+        "line": 8,
+        "column": 2,
+        "field": "Number of Records per Hour",
+        "value": "7",
+        "message": "records per hour \"7\" must be one of 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-2": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-3__data_periods_end_date_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-3",
+        "line": 8,
+        "column": -1,
+        "field": "DATA PERIODS",
+        "message": "1 data periods declared, so 7 fields are expected; found 6"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-3": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-3__data_periods_field_count.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-3",
+        "line": 8,
+        "column": -1,
+        "field": "DATA PERIODS",
+        "message": "2 data periods declared, so 11 fields are expected; found 7"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-3": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-4__data_period_name_empty.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-4",
+        "line": 8,
+        "column": 3,
+        "field": "Data Period 1 Name",
+        "message": "data period name is empty"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-4": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-5__bad_weekday.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-5",
+        "line": 8,
+        "column": 4,
+        "field": "Data Period 1 Start Day of Week",
+        "value": "Funday",
+        "message": "start day of week \"Funday\" is not a weekday name (Sunday ... Saturday)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-5": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-6__data_period_feb30.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-6",
+        "line": 8,
+        "column": 5,
+        "field": "Data Period 1 Start Day",
+        "value": "2/30",
+        "message": "date \"2/30\": day 30 does not exist in month 2"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-6": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-6__data_period_weekday_date.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-6",
+        "line": 8,
+        "column": 5,
+        "field": "Data Period 1 Start Day",
+        "value": "2 Monday in January",
+        "message": "weekday date \"2 Monday in January\" is allowed only for holidays and daylight saving"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-6": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-7__period_end_before_start.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-7",
+        "line": 8,
+        "column": -1,
+        "field": "DATA PERIODS",
+        "message": "data period 1 ends (1/8) before it starts (1/14); a period cannot run past 31 December, so split it into two periods or use m/d/y dates"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-7": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-7__period_wraps_year_end.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-7",
+        "line": 8,
+        "column": -1,
+        "field": "DATA PERIODS",
+        "message": "data period 1 ends (1/7) before it starts (12/25); a period cannot run past 31 December, so split it into two periods or use m/d/y dates"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-7": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-7__year_on_start_only.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-7",
+        "line": 8,
+        "column": -1,
+        "field": "DATA PERIODS",
+        "message": "data period 1: give a year on both start and end, or on neither"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-DP-7": 1
+      }
+    }
+  },
+  "testdata/broken/H-DP-8__overlapping_periods.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-DP-8",
+        "line": 8,
+        "column": -1,
+        "field": "DATA PERIODS",
+        "message": "data periods 1 (1/8-1/10) and 2 (1/10-1/14) overlap"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-3",
+        "line": 81,
+        "column": -1,
+        "value": "1/11/2009 hour 1",
+        "message": "data period 2 (B) starts at 1/10, but its first row is 1/11/2009 hour 1"
+      },
+      {
+        "severity": "error",
+        "rule": "D-SEQ-6",
+        "line": 0,
+        "column": -1,
+        "message": "DATA PERIODS (1/8-1/10, 1/10-1/14, 1 per hour) declares 192 rows, but the file has 168 data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 192,
+      "periods": 2,
+      "recordsPerHour": 1,
+      "errorCount": 3,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "D-SEQ-3": 1,
+        "D-SEQ-6": 1,
+        "H-DP-8": 1
+      }
+    }
+  },
+  "testdata/broken/H-GT-2__ground_temps_3_declared_2_given.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-GT-2",
+        "line": 4,
+        "column": -1,
+        "field": "GROUND TEMPERATURES",
+        "message": "3 depths declared, so 50 fields are expected; found 34"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-GT-2": 1
+      }
+    }
+  },
+  "testdata/broken/H-GT-2__ground_temps_last_month_empty.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-GT-2",
+        "line": 4,
+        "column": -1,
+        "field": "GROUND TEMPERATURES",
+        "message": "3 depths declared, so 50 fields are expected; found 49"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "H-TRAIL",
+        "line": 4,
+        "column": -1,
+        "field": "GROUND TEMPERATURES",
+        "message": "GROUND TEMPERATURES ends with empty fields; they are ignored"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 2,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-GT-2": 1,
+        "H-TRAIL": 1
+      }
+    }
+  },
+  "testdata/broken/H-GT-3__ground_depth_negative.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-GT-3",
+        "line": 4,
+        "column": 2,
+        "field": "Depth 1",
+        "value": "-0.5",
+        "message": "Depth 1 = -0.5 is outside the allowed range > 0"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-GT-3": 1
+      }
+    }
+  },
+  "testdata/broken/H-GT-5__ground_temp_80.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-GT-5",
+        "line": 4,
+        "column": 6,
+        "field": "Depth 1 month 1 ground temperature",
+        "value": "80",
+        "message": "Depth 1 month 1 ground temperature = 80 is outside the allowed range > -70 and < 70"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-GT-5": 1
+      }
+    }
+  },
+  "testdata/broken/H-HOL-1__leap_year_maybe.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-HOL-1",
+        "line": 5,
+        "column": 1,
+        "field": "LeapYear Observed",
+        "value": "Maybe",
+        "message": "leap-year field \"Maybe\" must be Yes or No"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-HOL-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-HOL-2__daylight_saving_bad_date.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-HOL-2",
+        "line": 5,
+        "column": 2,
+        "field": "Daylight Saving Start Day",
+        "value": "2/31",
+        "message": "date \"2/31\": day 31 does not exist in month 2 (use 0 for no daylight saving)"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-HOL-2": 1
+      }
+    }
+  },
+  "testdata/broken/H-HOL-3__holidays_count_mismatch.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-HOL-3",
+        "line": 5,
+        "column": -1,
+        "field": "HOLIDAYS/DAYLIGHT SAVINGS",
+        "message": "1 holidays declared, so 7 fields are expected; found 5"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-HOL-3": 1
+      }
+    }
+  },
+  "testdata/broken/H-HOL-3__holidays_cut_short.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-HOL-3",
+        "line": 5,
+        "column": 4,
+        "field": "Number of Holidays",
+        "message": "number of holidays \"\" is not a whole number >= 0"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-HOL-3": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-1__location_9_fields.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-1",
+        "line": 1,
+        "column": -1,
+        "field": "LOCATION",
+        "message": "LOCATION has 9 fields, expected 10 (keyword, city, region, country, source, WMO, latitude, longitude, time zone, elevation)"
+      },
+      {
+        "severity": "error",
+        "rule": "H-LOC-7",
+        "line": 1,
+        "column": 9,
+        "field": "Elevation",
+        "message": "Elevation \"\" is not a number"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 2,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-1": 1,
+        "H-LOC-7": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-2__empty_city.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-2",
+        "line": 1,
+        "column": 1,
+        "field": "City",
+        "message": "city is empty"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-2": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-3__empty_country.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-3",
+        "line": 1,
+        "column": 3,
+        "field": "Country",
+        "message": "Country is empty"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-3": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-3__empty_wmo.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-3",
+        "line": 1,
+        "column": 5,
+        "field": "WMO",
+        "message": "WMO is empty"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-3": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-4__latitude_95.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-4",
+        "line": 1,
+        "column": 6,
+        "field": "Latitude",
+        "value": "95",
+        "message": "Latitude = 95 is outside the allowed range >= -90 and <= 90"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-4": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-4__latitude_not_a_number.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-4",
+        "line": 1,
+        "column": 6,
+        "field": "Latitude",
+        "value": "60N",
+        "message": "Latitude \"60N\" is not a number"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-4": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-5__longitude_200.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-5",
+        "line": 1,
+        "column": 7,
+        "field": "Longitude",
+        "value": "200",
+        "message": "Longitude = 200 is outside the allowed range >= -180 and <= 180"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-5": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-6__time_zone_14.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-6",
+        "line": 1,
+        "column": 8,
+        "field": "Time Zone",
+        "value": "14",
+        "message": "Time Zone = 14 is outside the allowed range >= -12 and <= 12"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-6": 1
+      }
+    }
+  },
+  "testdata/broken/H-LOC-7__elevation_10000.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-LOC-7",
+        "line": 1,
+        "column": 9,
+        "field": "Elevation",
+        "value": "10000",
+        "message": "Elevation = 10000 is outside the allowed range >= -1000 and < 9999.9"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-LOC-7": 1
+      }
+    }
+  },
+  "testdata/broken/H-ORD-1__comments_2_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-ORD-1",
+        "line": 7,
+        "column": 0,
+        "value": "DATA PERIODS",
+        "message": "the COMMENTS 2 record is missing: line 7 should hold it, but holds the DATA PERIODS record"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 8,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 175,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-ORD-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-ORD-1__data_periods_row_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-ORD-1",
+        "line": 8,
+        "column": 0,
+        "value": "2009",
+        "message": "the DATA PERIODS record is missing: line 8 should hold it, but holds a data row"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 8,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 175,
+      "dataRows": 168,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-ORD-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-ORD-1__design_conditions_row_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-ORD-1",
+        "line": 2,
+        "column": 0,
+        "value": "TYPICAL/EXTREME PERIODS",
+        "message": "the DESIGN CONDITIONS record is missing: line 2 should hold it, but holds the TYPICAL/EXTREME PERIODS record"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 8,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 175,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-ORD-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-ORD-1__ground_temperatures_row_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-ORD-1",
+        "line": 4,
+        "column": 0,
+        "value": "HOLIDAYS/DAYLIGHT SAVINGS",
+        "message": "the GROUND TEMPERATURES record is missing: line 4 should hold it, but holds the HOLIDAYS/DAYLIGHT SAVINGS record"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 8,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 175,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-ORD-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-ORD-1__headers_3_and_4_swapped.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-ORD-1",
+        "line": 3,
+        "column": 0,
+        "value": "GROUND TEMPERATURES",
+        "message": "the TYPICAL/EXTREME PERIODS record is missing: line 3 should hold it, but holds the GROUND TEMPERATURES record"
+      },
+      {
+        "severity": "error",
+        "rule": "H-ORD-1",
+        "line": 4,
+        "column": 0,
+        "value": "TYPICAL/EXTREME PERIODS",
+        "message": "the TYPICAL/EXTREME PERIODS record is out of order or repeated; it belongs on line 3"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 2,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-ORD-1": 2
+      }
+    }
+  },
+  "testdata/broken/H-ORD-1__location_row_missing.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-ORD-1",
+        "line": 1,
+        "column": 0,
+        "value": "DESIGN CONDITIONS",
+        "message": "the LOCATION record is missing: line 1 should hold it, but holds the DESIGN CONDITIONS record"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 8,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 175,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-ORD-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-ORD-1__only_header_lines.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-ORD-1",
+        "line": 0,
+        "column": -1,
+        "message": "the file ends before the COMMENTS 1 record (it has 5 lines)"
+      }
+    ],
+    "warnings": [],
+    "summary": {
+      "lines": 5,
+      "dataRows": 0,
+      "expectedRows": -1,
+      "periods": 0,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 0,
+      "missing": {},
+      "ruleCounts": {
+        "H-ORD-1": 1
+      }
+    }
+  },
+  "testdata/broken/H-ORD-3__header_record_inside_data.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-ORD-3",
+        "line": 19,
+        "column": 0,
+        "value": "COMMENTS 1",
+        "message": "header record \"COMMENTS 1\" found among the data rows"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 177,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-ORD-3": 1
+      }
+    }
+  },
+  "testdata/broken/H-TEP-2__typical_periods_count_mismatch.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-TEP-2",
+        "line": 3,
+        "column": -1,
+        "field": "TYPICAL/EXTREME PERIODS",
+        "message": "7 periods declared, so 30 fields are expected; found 26"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-TEP-2": 1
+      }
+    }
+  },
+  "testdata/broken/H-TEP-4__typical_period_bad_date.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-TEP-4",
+        "line": 3,
+        "column": 4,
+        "field": "Period 1 Start Day",
+        "value": "13/40",
+        "message": "date \"13/40\": month 13 is outside 1-12"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-TEP-4": 1
+      }
+    }
+  },
+  "testdata/broken/H-TEP-5__typical_period_name_empty.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-TEP-5",
+        "line": 3,
+        "column": 2,
+        "field": "Period 1 Name",
+        "message": "typical/extreme period name is empty"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-TEP-5": 1
+      }
+    }
+  },
+  "testdata/broken/H-TEP-5__typical_period_type_empty.epw": {
+    "valid": false,
+    "errors": [
+      {
+        "severity": "error",
+        "rule": "H-TEP-5",
+        "line": 3,
+        "column": 3,
+        "field": "Period 1 Type",
+        "message": "typical/extreme period type is empty"
+      }
+    ],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 1,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1,
+        "H-TEP-5": 1
+      }
+    }
+  },
+  "testdata/partial/daylight_saving_and_holidays.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/four_representative_months_2015-2018.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "2952 of 2952 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 2960,
+      "dataRows": 2952,
+      "expectedRows": 2952,
+      "periods": 4,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 42
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/holidays_daylight_saving_without_s.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/julian_dates_january.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "744 of 744 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 752,
+      "dataRows": 744,
+      "expectedRows": 744,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/leap_flag_yes_but_non_leap_year_2019.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "792 of 792 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 800,
+      "dataRows": 792,
+      "expectedRows": 792,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 4
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/leap_year_feb-mar5_2020.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "816 of 816 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 824,
+      "dataRows": 816,
+      "expectedRows": 816,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 4
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/lf_line_endings_one_week.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/mdy_dates_across_new_year.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "336 of 336 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 344,
+      "dataRows": 336,
+      "expectedRows": 336,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/mdy_dates_one_day_2019.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "24 of 24 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 32,
+      "dataRows": 24,
+      "expectedRows": 24,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/named_month_dates_january.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "744 of 744 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 752,
+      "dataRows": 744,
+      "expectedRows": 744,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/norcerra_one_week.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "__________________*_____________*_*___*_*_*",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 10,
+        "field": "Extraterrestrial Horizontal Radiation",
+        "message": "Extraterrestrial Horizontal Radiation is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 11,
+        "field": "Extraterrestrial Direct Normal Radiation",
+        "message": "Extraterrestrial Direct Normal Radiation is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 16,
+        "field": "Global Horizontal Illuminance",
+        "message": "Global Horizontal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 17,
+        "field": "Direct Normal Illuminance",
+        "message": "Direct Normal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 18,
+        "field": "Diffuse Horizontal Illuminance",
+        "message": "Diffuse Horizontal Illuminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 19,
+        "field": "Zenith Luminance",
+        "message": "Zenith Luminance is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 29,
+        "field": "Aerosol Optical Depth",
+        "message": "Aerosol Optical Depth is missing on every row"
+      },
+      {
+        "severity": "warning",
+        "rule": "D-MIS-3",
+        "line": 0,
+        "column": 30,
+        "field": "Snow Depth",
+        "message": "Snow Depth is missing on every row"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 9,
+      "missing": {
+        "Aerosol Optical Depth": 168,
+        "Diffuse Horizontal Illuminance": 168,
+        "Direct Normal Illuminance": 168,
+        "Extraterrestrial Direct Normal Radiation": 168,
+        "Extraterrestrial Horizontal Radiation": 168,
+        "Global Horizontal Illuminance": 168,
+        "Snow Depth": 168,
+        "Zenith Luminance": 168
+      },
+      "ruleCounts": {
+        "D-MIS-3": 8,
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/one_day_jul15.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "24 of 24 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 32,
+      "dataRows": 24,
+      "expectedRows": 24,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/one_month_january.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "744 of 744 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 752,
+      "dataRows": 744,
+      "expectedRows": 744,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/one_week_jan8-14.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/subhourly_15min_one_day.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9*9?9*9*9?9*9",
+        "message": "96 of 96 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 104,
+      "dataRows": 96,
+      "expectedRows": 96,
+      "periods": 1,
+      "recordsPerHour": 4,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/three_months_jan-mar.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "2160 of 2160 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 2168,
+      "dataRows": 2160,
+      "expectedRows": 2160,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 31
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/trailing_blank_lines_one_week.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9*9*9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 176,
+      "dataRows": 168,
+      "expectedRows": 168,
+      "periods": 1,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {},
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  },
+  "testdata/partial/two_periods_jan2019_jul2021.epw": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      {
+        "severity": "warning",
+        "rule": "D-ROW-6",
+        "line": 9,
+        "column": 5,
+        "field": "Data Source and Uncertainty Flags",
+        "value": "?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9",
+        "message": "1488 of 1488 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed"
+      }
+    ],
+    "summary": {
+      "lines": 1496,
+      "dataRows": 1488,
+      "expectedRows": 1488,
+      "periods": 2,
+      "recordsPerHour": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "missing": {
+        "Zenith Luminance": 9
+      },
+      "ruleCounts": {
+        "D-ROW-6": 1
+      }
+    }
+  }
+}

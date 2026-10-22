@@ -1,7 +1,6 @@
 package epwvalidate
 
 import (
-	"encoding/csv"
 	"fmt"
 	"math"
 	"strings"
@@ -29,16 +28,45 @@ func matchesKeyword(pos int, s string) bool {
 
 func isHeaderKeyword(s string) bool { return headerPosition(s) >= 0 }
 
-// splitCSV splits a header line, honouring double-quoted fields.
+// splitCSV splits a header line, honouring double-quoted fields. Inside a
+// quoted field "" is a quote; a quote that does not end the field is kept as
+// text. Every language version uses this same algorithm.
 func splitCSV(line string) []string {
-	r := csv.NewReader(strings.NewReader(line))
-	r.FieldsPerRecord = -1
-	r.LazyQuotes = true
-	rec, err := r.Read()
-	if err != nil {
-		return strings.Split(line, ",")
+	var fields []string
+	for {
+		if !strings.HasPrefix(line, `"`) {
+			i := strings.IndexByte(line, ',')
+			if i < 0 {
+				return append(fields, line)
+			}
+			fields = append(fields, line[:i])
+			line = line[i+1:]
+			continue
+		}
+		var b strings.Builder
+		line = line[1:]
+		for {
+			i := strings.IndexByte(line, '"')
+			if i < 0 {
+				b.WriteString(line)
+				return append(fields, b.String())
+			}
+			b.WriteString(line[:i])
+			line = line[i+1:]
+			if strings.HasPrefix(line, `"`) {
+				b.WriteByte('"')
+				line = line[1:]
+			} else if line == "" {
+				return append(fields, b.String())
+			} else if line[0] == ',' {
+				line = line[1:]
+				break
+			} else {
+				b.WriteByte('"')
+			}
+		}
+		fields = append(fields, b.String())
 	}
-	return rec
 }
 
 func trimTrailingEmpty(f []string) ([]string, bool) {

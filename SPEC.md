@@ -78,8 +78,9 @@ Every finding is an **error** or a **warning**.
 Each finding reports the line number, the field, the value, a message and the rule ID. At most 20 findings per rule
 are listed; the full count per rule is always reported.
 
-The Go API (`ValidateFile`, `Validate`, `ValidateBytes`, the `Report` type) and the command-line tool are described
-in [README.md](README.md).
+The validator exists in Go, Python, Node and C#. All four must give exactly the same findings, with the same
+messages, for every file; §11 says how this is checked. Their APIs, the JSON shape of a report and the command-line
+tools are described in [README.md](README.md).
 
 ---
 
@@ -359,7 +360,12 @@ points:
 
 ## 11. Tests
 
-`go test ./...` checks:
+The Go version is the reference. Its tests check the points below and record its exact report for every test file
+in `testdata/expected.json`, and its text output for the broken files in `testdata/broken_results.txt`. The Python,
+Node and C# tests must reproduce both files exactly, so all four versions agree on every rule, message, line number
+and count.
+
+The Go tests (`cd go && go test ./...`) check:
 
 1. **Real files** in `EPW_format/epw_examples/` (13 files) are valid. They include:
    - a typical-year file (TMYx) with 2025 ASHRAE design conditions;
@@ -385,6 +391,9 @@ points:
 
 Files added to `testdata/partial/` or `testdata/broken/` are picked up by name. Setting `EPWVALIDATE_SAMPLES` to a
 folder also checks every `.epw` file below it.
+
+When a rule changes: update this document, change the Go version, regenerate the test files and expected results
+with `cd go && go test -run 'TestFixtures|TestExpected' -update`, and make the other three versions pass again.
 
 ## 12. Open questions
 

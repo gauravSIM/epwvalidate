@@ -1,8 +1,8 @@
 package epwvalidate
 
 // Test fixtures: partial-year files that must be valid and broken files that
-// must be invalid. They are built from two real files in EPW_format/epw_examples
-// and written to testdata/partial and testdata/broken by:
+// must be invalid. They are built from two real files in ../EPW_format/epw_examples
+// and written to ../testdata/partial and ../testdata/broken by:
 //
 //	go test -run TestFixtures -update
 //
@@ -24,8 +24,8 @@ import (
 var update = flag.Bool("update", false, "rewrite testdata/partial and testdata/broken")
 
 const (
-	osloFile   = "EPW_format/epw_examples/NOR_AK_Oslo.AP-Gardermoen.013840_TMYx.2007-2021.epw"
-	hurdalFile = "EPW_format/epw_examples/NOR_AK_Hurdal.NOR076_NORCERRA.epw"
+	osloFile   = "../EPW_format/epw_examples/NOR_AK_Oslo.AP-Gardermoen.013840_TMYx.2007-2021.epw"
+	hurdalFile = "../EPW_format/epw_examples/NOR_AK_Hurdal.NOR076_NORCERRA.epw"
 )
 
 var (
@@ -511,7 +511,7 @@ func TestFixtures(t *testing.T) {
 		seen[fx.fileName()] = true
 		t.Run(fx.dir+"/"+fx.fileName(), func(t *testing.T) {
 			data := fx.make()
-			path := filepath.Join("testdata", fx.dir, fx.fileName())
+			path := filepath.Join("..", "testdata", fx.dir, fx.fileName())
 			if *update {
 				if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
 					t.Fatal(err)
