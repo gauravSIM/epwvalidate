@@ -1,0 +1,485 @@
+broken/D-MIS-1__dry_bulb_all_missing.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    file, Dry Bulb Temperature: Dry Bulb Temperature is missing on every row; the file cannot be used for simulation [D-MIS-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-MIS-1__global_horizontal_all_missing.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    file, Global Horizontal Radiation: Global Horizontal Radiation is missing on every row; the file cannot be used for simulation [D-MIS-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-MIS-1__wind_speed_all_missing.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    file, Wind Speed: Wind Speed is missing on every row; the file cannot be used for simulation [D-MIS-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__dew_point_80.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 2 warnings
+  error    line 79, Dew Point Temperature: Dew Point Temperature = 80 is outside the allowed range > -70 and < 70 (missing values are >= 99.9) [D-RNG-1]
+  warning  line 79, Dew Point Temperature: dew point 80 is above dry bulb 1.40 [D-CON-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__direct_normal_negative.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Direct Normal Radiation: Direct Normal Radiation = -1 is outside the allowed range >= 0 (missing values are >= 9999) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__dry_bulb_75.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Dry Bulb Temperature: Dry Bulb Temperature = 75.0 is outside the allowed range > -70 and < 70 (missing values are >= 99.9) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__dry_bulb_minus_70.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 2 warnings
+  error    line 79, Dry Bulb Temperature: Dry Bulb Temperature = -70 is outside the allowed range > -70 and < 70 (missing values are >= 99.9) [D-RNG-1]
+  warning  line 79, Dew Point Temperature: dew point -1.90 is above dry bulb -70 [D-CON-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__global_horizontal_negative.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Global Horizontal Radiation: Global Horizontal Radiation = -5 is outside the allowed range >= 0 (missing values are >= 9999) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__illuminance_negative.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Global Horizontal Illuminance: Global Horizontal Illuminance = -100 is outside the allowed range >= 0 (missing values are >= 999900) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__opaque_sky_cover_negative.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Opaque Sky Cover: Opaque Sky Cover = -1 is outside the allowed range >= 0 and <= 10 (missing values are >= 99) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__pressure_30000.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Atmospheric Station Pressure: Atmospheric Station Pressure = 30000 is outside the allowed range > 31000 and < 120000 (missing values are >= 999999) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__relative_humidity_120.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 2 warnings
+  error    line 79, Relative Humidity: Relative Humidity = 120 is outside the allowed range >= 0 and <= 110 (missing values are >= 999) [D-RNG-1]
+  warning  line 79, Relative Humidity: relative humidity 120 is above 100 [D-CON-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__total_sky_cover_11.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Total Sky Cover: Total Sky Cover = 11 is outside the allowed range >= 0 and <= 10 (missing values are >= 99) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__wind_direction_400.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Wind Direction: Wind Direction = 400 is outside the allowed range >= 0 and <= 360 (missing values are >= 999) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-RNG-1__wind_speed_45.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 79, Wind Speed: Wind Speed = 45 is outside the allowed range >= 0 and <= 40 (missing values are >= 999) [D-RNG-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-1__row_with_34_fields.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 29: row has 34 fields, expected 35 [D-ROW-1]
+  warning  line 9, Data Source and Uncertainty Flags: 167 of 167 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-1__row_with_36_fields.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 29: row has 36 fields, expected 35 [D-ROW-1]
+  warning  line 9, Data Source and Uncertainty Flags: 167 of 167 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-2__hour_not_integer.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 39, Hour: Hour "7.5" is not a whole number [D-ROW-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-3__dry_bulb_text.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 49, Dry Bulb Temperature: Dry Bulb Temperature "abc" is not a number [D-ROW-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-3__pressure_empty.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 49, Atmospheric Station Pressure: Atmospheric Station Pressure "" is not a number [D-ROW-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-3__wind_speed_nan.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 49, Wind Speed: Wind Speed "NaN" is not a number [D-ROW-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-4__weather_codes_8_digits.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 59, Present Weather Codes: present weather codes "92999999" must be exactly 9 digits [D-ROW-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-4__weather_codes_letters.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 59, Present Weather Codes: present weather codes "9299999x9" must be exactly 9 digits [D-ROW-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-5__weather_observation_5.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 59, Present Weather Observation: present weather observation 5 must be 0 or 9 [D-ROW-5]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-ROW-7__empty_flags.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 69, Data Source and Uncertainty Flags: data source and uncertainty flags are empty [D-ROW-7]
+  warning  line 9, Data Source and Uncertainty Flags: 167 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-1__hour_0.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 89: month 1, day 11, hour 0 is not a valid time (month 1-12, a day that exists in the month, hour 1-24) [D-SEQ-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-1__hour_25.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 89: month 1, day 11, hour 25 is not a valid time (month 1-12, a day that exists in the month, hour 1-24) [D-SEQ-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-1__january_32.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 89: month 1, day 32, hour 9 is not a valid time (month 1-12, a day that exists in the month, hour 1-24) [D-SEQ-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-1__month_13.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 89: month 13, day 11, hour 9 is not a valid time (month 1-12, a day that exists in the month, hour 1-24) [D-SEQ-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-2__minute_61.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 89, Minute: minute 61 is outside 0-60 [D-SEQ-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-2__subhourly_wrong_minutes.epw: INVALID - 48 data rows (DATA PERIODS declares 48), 25 errors, 1 warnings
+  error    line 9, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 10: expected 1/8 hour 1 step 2, found 1/8/2009 hour 1 (rows must follow each other one time step apart) [D-SEQ-3]
+  error    line 11, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 13, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 15, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 17, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 19, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 21, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 23, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 25, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 27, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 29, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 31, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 33, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 35, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 37, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 39, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 41, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 43, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 45, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  error    line 47, Minute: minute 0: with 2 records per hour the minutes must be 30, 60 [D-SEQ-2]
+  warning  line 9, Data Source and Uncertainty Flags: 48 of 48 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+  ... and 4 more [D-SEQ-2]
+
+broken/D-SEQ-3__one_row_deleted.epw: INVALID - 167 data rows (DATA PERIODS declares 168), 2 errors, 1 warnings
+  error    line 109: expected 1/12/2009 hour 5, found 1/12/2009 hour 6 (rows must follow each other one time step apart) [D-SEQ-3]
+  error    file: DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 167 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 167 of 167 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-3__one_row_duplicated.epw: INVALID - 169 data rows (DATA PERIODS declares 168), 2 errors, 1 warnings
+  error    line 110: expected 1/12/2009 hour 6, found 1/12/2009 hour 5 (rows must follow each other one time step apart) [D-SEQ-3]
+  error    file: DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 169 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 169 of 169 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-3__second_period_starts_wrong_day.epw: INVALID - 1464 data rows (DATA PERIODS declares 1464), 1 errors, 1 warnings
+  error    line 753: data period 2 (Jul) starts at 7/2, but its first row is 7/1/2019 hour 1 [D-SEQ-3]
+  warning  line 9, Data Source and Uncertainty Flags: 1464 of 1464 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-3__starts_on_wrong_day.epw: INVALID - 144 data rows (DATA PERIODS declares 168), 2 errors, 1 warnings
+  error    line 9: data period 1 (Week) starts at 1/8, but its first row is 1/9/2009 hour 1 [D-SEQ-3]
+  error    file: DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 144 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 144 of 144 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-3__two_rows_swapped.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 3 errors, 1 warnings
+  error    line 109: expected 1/12/2009 hour 5, found 1/12/2009 hour 6 (rows must follow each other one time step apart) [D-SEQ-3]
+  error    line 110: expected 1/12/2009 hour 7, found 1/12/2009 hour 5 (rows must follow each other one time step apart) [D-SEQ-3]
+  error    line 111: expected 1/12/2009 hour 6, found 1/12/2009 hour 7 (rows must follow each other one time step apart) [D-SEQ-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-4__mdy_period_wrong_year.epw: INVALID - 48 data rows (DATA PERIODS declares 48), 1 errors, 1 warnings
+  error    line 33, Year: year 2020, expected 2019 (data period 1 has m/d/y dates) [D-SEQ-4]
+  warning  line 9, Data Source and Uncertainty Flags: 48 of 48 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-4__year_changes_mid_month.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 59, Year: year changes from 2009 to 1999 inside month 1; it may change only when the month changes [D-SEQ-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-5__feb29_missing_with_leap_yes.epw: INVALID - 792 data rows (DATA PERIODS declares 816), 2 errors, 1 warnings
+  error    line 681: 29 February 2020 is missing: the leap-year field is Yes and 2020 is a leap year [D-SEQ-5]
+  error    file: DATA PERIODS (2/1-3/5, 1 per hour) declares 816 rows, but the file has 792 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 792 of 792 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-5__feb29_rows_in_non_leap_year.epw: INVALID - 816 data rows (DATA PERIODS declares 792), 25 errors, 1 warnings
+  error    line 681, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 682, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 683, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 684, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 685, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 686, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 687, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 688, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 689, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 690, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 691, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 692, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 693, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 694, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 695, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 696, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 697, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 698, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 699, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    line 700, Day: row for 29 February, but 2019 is not a leap year [D-SEQ-5]
+  error    file: DATA PERIODS (2/1-3/5, 1 per hour) declares 792 rows, but the file has 816 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 816 of 816 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+  ... and 4 more [D-SEQ-5]
+
+broken/D-SEQ-5__feb29_rows_with_leap_no.epw: INVALID - 816 data rows (DATA PERIODS declares 792), 25 errors, 1 warnings
+  error    line 681, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 682, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 683, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 684, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 685, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 686, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 687, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 688, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 689, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 690, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 691, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 692, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 693, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 694, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 695, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 696, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 697, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 698, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 699, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    line 700, Day: row for 29 February, but the leap-year field is No [D-SEQ-5]
+  error    file: DATA PERIODS (2/1-3/5, 1 per hour) declares 792 rows, but the file has 816 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 816 of 816 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+  ... and 4 more [D-SEQ-5]
+
+broken/D-SEQ-6__declares_month_has_week.epw: INVALID - 168 data rows (DATA PERIODS declares 744), 2 errors, 1 warnings
+  error    line 9: data period 1 (January) starts at 1/1, but its first row is 1/8/2009 hour 1 [D-SEQ-3]
+  error    file: DATA PERIODS (1/1-1/31, 1 per hour) declares 744 rows, but the file has 168 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-6__extra_day_after_period.epw: INVALID - 192 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    file: DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 192 data rows; 24 rows come after the last period ends (first at line 177) [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 192 of 192 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-6__last_day_missing.epw: INVALID - 144 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    file: DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 144 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 144 of 144 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/D-SEQ-6__no_data_rows.epw: INVALID - 0 data rows (DATA PERIODS declares 168), 1 errors, 0 warnings
+  error    file: DATA PERIODS (1/8-1/14, 1 per hour) declares 168 rows, but the file has 0 data rows [D-SEQ-6]
+
+broken/F-1__empty_file.epw: INVALID - 0 data rows, 1 errors, 0 warnings
+  error    file: the file is empty [F-1]
+
+broken/F-1__latin1_city_name.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1: line is not valid UTF-8; save the file as UTF-8 [F-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/F-2__utf8_bom.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1: the file starts with a UTF-8 byte-order mark (BOM); save it without BOM [F-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/F-4__blank_line_in_data.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 19: empty line inside the data [F-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/F-5__semicolon_line_end.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 2 errors, 1 warnings
+  error    line 14: line ends with ';' (semicolons do not end lines in EPW) [F-5]
+  error    line 14, Liquid Precipitation Quantity: Liquid Precipitation Quantity "0.0;" is not a number [D-ROW-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/F-6__quote_in_data_row.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 12: data rows must not contain double quotes [F-6]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/F-6__quoted_city_with_comma.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 3 errors, 2 warnings
+  error    line 1, LOCATION: LOCATION must not contain double quotes; many EPW readers split this line on bare commas [F-6]
+  error    line 1, LOCATION: LOCATION has 11 fields, expected 10 (keyword, city, region, country, source, WMO, latitude, longitude, time zone, elevation) [H-LOC-1]
+  error    line 1, Latitude: Latitude = 013840 is outside the allowed range >= -90 and <= 90 [H-LOC-4]
+  warning  line 1, Time Zone: time zone 11.08 h is far from the 4 h expected at longitude 60.2064; check the sign [H-LOC-8]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-COM-1__comments_1_empty.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 6, COMMENTS 1: COMMENTS 1 has no text [H-COM-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-COM-1__comments_2_keyword_only.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 7, COMMENTS 2: COMMENTS 2 has no text [H-COM-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DC-1__design_conditions_count_not_number.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 2, Number of Design Conditions: Number of Design Conditions "x" is not a whole number >= 0 [H-DC-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DC-2__design_conditions_0_with_data.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 2, DESIGN CONDITIONS: number of design conditions is 0, but the record has more fields [H-DC-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DC-4__design_conditions_cooling_label_missing.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 3 errors, 1 warnings
+  error    line 2, Heating value: Heating value at field 21 is empty [H-DC-4]
+  error    line 2, Heating value: Heating value "Extremes" at field 54 is not a number [H-DC-4]
+  error    line 2, DESIGN CONDITIONS: expected the Cooling section at field 82, found "" [H-DC-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DC-4__design_conditions_cut_short.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 2, DESIGN CONDITIONS: expected the Extremes section at field 41, found "" [H-DC-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DC-4__design_conditions_value_empty.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 2, Cooling value: Cooling value at field 31 is empty [H-DC-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DC-5__design_conditions_extremes_short.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 2, DESIGN CONDITIONS: 2025 ASHRAE Handbook design conditions have 16 Heating, 32 Cooling and 27 Extremes values; found 16, 32 and 24 [H-DC-5]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-1__zero_data_periods.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, Number of Data Periods: number of data periods "0" is not a whole number >= 1 [H-DP-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-2__seven_records_per_hour.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, Number of Records per Hour: records per hour "7" must be one of 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 [H-DP-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-3__data_periods_end_date_missing.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, DATA PERIODS: 1 data periods declared, so 7 fields are expected; found 6 [H-DP-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-3__data_periods_field_count.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, DATA PERIODS: 2 data periods declared, so 11 fields are expected; found 7 [H-DP-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-4__data_period_name_empty.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 8, Data Period 1 Name: data period name is empty [H-DP-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-5__bad_weekday.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 8, Data Period 1 Start Day of Week: start day of week "Funday" is not a weekday name (Sunday ... Saturday) [H-DP-5]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-6__data_period_feb30.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, Data Period 1 Start Day: date "2/30": day 30 does not exist in month 2 [H-DP-6]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-6__data_period_weekday_date.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, Data Period 1 Start Day: weekday date "2 Monday in January" is allowed only for holidays and daylight saving [H-DP-6]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-7__period_end_before_start.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, DATA PERIODS: data period 1 ends (1/8) before it starts (1/14); a period cannot run past 31 December, so split it into two periods or use m/d/y dates [H-DP-7]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-7__period_wraps_year_end.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, DATA PERIODS: data period 1 ends (1/7) before it starts (12/25); a period cannot run past 31 December, so split it into two periods or use m/d/y dates [H-DP-7]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-7__year_on_start_only.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8, DATA PERIODS: data period 1: give a year on both start and end, or on neither [H-DP-7]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-DP-8__overlapping_periods.epw: INVALID - 168 data rows (DATA PERIODS declares 192), 3 errors, 1 warnings
+  error    line 8, DATA PERIODS: data periods 1 (1/8-1/10) and 2 (1/10-1/14) overlap [H-DP-8]
+  error    line 81: data period 2 (B) starts at 1/10, but its first row is 1/11/2009 hour 1 [D-SEQ-3]
+  error    file: DATA PERIODS (1/8-1/10, 1/10-1/14, 1 per hour) declares 192 rows, but the file has 168 data rows [D-SEQ-6]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-GT-2__ground_temps_3_declared_2_given.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 4, GROUND TEMPERATURES: 3 depths declared, so 50 fields are expected; found 34 [H-GT-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-GT-2__ground_temps_last_month_empty.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 2 warnings
+  error    line 4, GROUND TEMPERATURES: 3 depths declared, so 50 fields are expected; found 49 [H-GT-2]
+  warning  line 4, GROUND TEMPERATURES: GROUND TEMPERATURES ends with empty fields; they are ignored [H-TRAIL]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-GT-3__ground_depth_negative.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 4, Depth 1: Depth 1 = -0.5 is outside the allowed range > 0 [H-GT-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-GT-5__ground_temp_80.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 4, Depth 1 month 1 ground temperature: Depth 1 month 1 ground temperature = 80 is outside the allowed range > -70 and < 70 [H-GT-5]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-HOL-1__leap_year_maybe.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 5, LeapYear Observed: leap-year field "Maybe" must be Yes or No [H-HOL-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-HOL-2__daylight_saving_bad_date.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 5, Daylight Saving Start Day: date "2/31": day 31 does not exist in month 2 (use 0 for no daylight saving) [H-HOL-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-HOL-3__holidays_count_mismatch.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 5, HOLIDAYS/DAYLIGHT SAVINGS: 1 holidays declared, so 7 fields are expected; found 5 [H-HOL-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-HOL-3__holidays_cut_short.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 5, Number of Holidays: number of holidays "" is not a whole number >= 0 [H-HOL-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-1__location_9_fields.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 2 errors, 1 warnings
+  error    line 1, LOCATION: LOCATION has 9 fields, expected 10 (keyword, city, region, country, source, WMO, latitude, longitude, time zone, elevation) [H-LOC-1]
+  error    line 1, Elevation: Elevation "" is not a number [H-LOC-7]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-2__empty_city.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1, City: city is empty [H-LOC-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-3__empty_country.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1, Country: Country is empty [H-LOC-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-3__empty_wmo.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1, WMO: WMO is empty [H-LOC-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-4__latitude_95.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1, Latitude: Latitude = 95 is outside the allowed range >= -90 and <= 90 [H-LOC-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-4__latitude_not_a_number.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1, Latitude: Latitude "60N" is not a number [H-LOC-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-5__longitude_200.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1, Longitude: Longitude = 200 is outside the allowed range >= -180 and <= 180 [H-LOC-5]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-6__time_zone_14.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1, Time Zone: Time Zone = 14 is outside the allowed range >= -12 and <= 12 [H-LOC-6]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-LOC-7__elevation_10000.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1, Elevation: Elevation = 10000 is outside the allowed range >= -1000 and < 9999.9 [H-LOC-7]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-ORD-1__comments_2_missing.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 7: the COMMENTS 2 record is missing: line 7 should hold it, but holds the DATA PERIODS record [H-ORD-1]
+  warning  line 8, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-ORD-1__data_periods_row_missing.epw: INVALID - 168 data rows, 1 errors, 1 warnings
+  error    line 8: the DATA PERIODS record is missing: line 8 should hold it, but holds a data row [H-ORD-1]
+  warning  line 8, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-ORD-1__design_conditions_row_missing.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 2: the DESIGN CONDITIONS record is missing: line 2 should hold it, but holds the TYPICAL/EXTREME PERIODS record [H-ORD-1]
+  warning  line 8, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-ORD-1__ground_temperatures_row_missing.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 4: the GROUND TEMPERATURES record is missing: line 4 should hold it, but holds the HOLIDAYS/DAYLIGHT SAVINGS record [H-ORD-1]
+  warning  line 8, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-ORD-1__headers_3_and_4_swapped.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 2 errors, 1 warnings
+  error    line 3: the TYPICAL/EXTREME PERIODS record is missing: line 3 should hold it, but holds the GROUND TEMPERATURES record [H-ORD-1]
+  error    line 4: the TYPICAL/EXTREME PERIODS record is out of order or repeated; it belongs on line 3 [H-ORD-1]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-ORD-1__location_row_missing.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 1: the LOCATION record is missing: line 1 should hold it, but holds the DESIGN CONDITIONS record [H-ORD-1]
+  warning  line 8, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-ORD-1__only_header_lines.epw: INVALID - 0 data rows, 1 errors, 0 warnings
+  error    file: the file ends before the COMMENTS 1 record (it has 5 lines) [H-ORD-1]
+
+broken/H-ORD-3__header_record_inside_data.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 19: header record "COMMENTS 1" found among the data rows [H-ORD-3]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-TEP-2__typical_periods_count_mismatch.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 3, TYPICAL/EXTREME PERIODS: 7 periods declared, so 30 fields are expected; found 26 [H-TEP-2]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-TEP-4__typical_period_bad_date.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 3, Period 1 Start Day: date "13/40": month 13 is outside 1-12 [H-TEP-4]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-TEP-5__typical_period_name_empty.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 3, Period 1 Name: typical/extreme period name is empty [H-TEP-5]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+
+broken/H-TEP-5__typical_period_type_empty.epw: INVALID - 168 data rows (DATA PERIODS declares 168), 1 errors, 1 warnings
+  error    line 3, Period 1 Type: typical/extreme period type is empty [H-TEP-5]
+  warning  line 9, Data Source and Uncertainty Flags: 168 of 168 rows have flags that are not the classic 44 characters (a source letter A-I or ? followed by a digit, 22 times); this is common and allowed [D-ROW-6]
+

@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EPW weather file format</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5a52;--line:#e2ded3;--panel:#f2efe7;--code-bg:#f4f1ea;--accent:#1f5f8b;--th:#ebe7dc}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#16171a;--fg:#e7e5df;--muted:#a19d93;--line:#2e3036;--panel:#1d1f23;--code-bg:#1c1e22;--accent:#7cb7e0;--th:#24272c}}
+:root[data-theme="dark"]{--bg:#16171a;--fg:#e7e5df;--muted:#a19d93;--line:#2e3036;--panel:#1d1f23;--code-bg:#1c1e22;--accent:#7cb7e0;--th:#24272c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;max-width:1280px;margin:0 auto;padding:32px 24px}
+.toc{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow:auto;font-size:14px;border-right:1px solid var(--line);padding-right:16px}
+.toc-title{font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-size:12px;margin:0 0 8px}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:2px 0}.toc li.l3{padding-left:14px;font-size:13px}
+.toc a{color:var(--fg);text-decoration:none}.toc a:hover{color:var(--accent)}
+main{min-width:0}
+h1{font-size:2rem;line-height:1.2;margin:0 0 24px}
+h2{font-size:1.45rem;margin:40px 0 12px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:1.15rem;margin:28px 0 8px}
+h2,h3{scroll-margin-top:16px}
+a{color:var(--accent)}
+hr{display:none}
+code{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-size:.88em;background:var(--code-bg);padding:1px 4px;border-radius:4px}
+.code{position:relative;margin:12px 0 16px;border:1px solid var(--line);border-radius:8px;background:var(--code-bg)}
+.code pre{margin:0;padding:14px 16px;overflow-x:auto;font-size:13px;line-height:1.5}
+.code pre code{background:none;padding:0;font-size:inherit;white-space:pre}
+.code .lang{position:absolute;top:6px;left:12px;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.06em}
+.code pre.lang-csv{padding-top:26px}
+.copy{position:absolute;top:6px;right:8px;font:12px system-ui,sans-serif;padding:3px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--fg);cursor:pointer;opacity:.85}
+.copy:hover{opacity:1}
+.table{overflow-x:auto;margin:12px 0 16px}
+table{border-collapse:collapse;font-size:14px;width:100%}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--th);font-weight:600}
+blockquote{margin:12px 0;padding:8px 16px;border-left:3px solid var(--accent);background:var(--panel)}
+ul,ol{padding-left:22px}
+@media (max-width:860px){.layout{grid-template-columns:1fr;padding:20px 16px;gap:16px}.toc{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line);padding:0 0 12px}h1{font-size:1.6rem}}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc" aria-label="Contents"><p class="toc-title">Contents</p><ul><li class="l2"><a href="#example-first-12-lines-of-an-epw-file">Example: first 12 lines of an EPW file</a></li><li class="l2"><a href="#1-file-shape">1. File shape</a></li><li class="l3"><a href="#idd-conventions-used-in-the-dictionary">IDD conventions used in the dictionary</a></li><li class="l3"><a href="#date-fields-in-header-records">Date fields in header records</a></li><li class="l2"><a href="#2-header-records">2. Header records</a></li><li class="l3"><a href="#2-1-location">2.1 LOCATION</a></li><li class="l3"><a href="#2-2-design-conditions">2.2 DESIGN CONDITIONS</a></li><li class="l3"><a href="#2-3-typical-extreme-periods">2.3 TYPICAL/EXTREME PERIODS</a></li><li class="l3"><a href="#2-4-ground-temperatures">2.4 GROUND TEMPERATURES</a></li><li class="l3"><a href="#2-5-holidays-daylight-saving">2.5 HOLIDAYS/DAYLIGHT SAVING</a></li><li class="l3"><a href="#2-6-comments-1-comments-2">2.6 COMMENTS 1 / COMMENTS 2</a></li><li class="l3"><a href="#2-7-data-periods">2.7 DATA PERIODS</a></li><li class="l2"><a href="#3-data-records-35-fields">3. Data records: 35 fields</a></li><li class="l2"><a href="#4-horizontal-infrared-radiation-when-missing">4. Horizontal infrared radiation when missing</a></li><li class="l2"><a href="#5-data-source-and-uncertainty-flags-field-a1">5. Data Source and Uncertainty Flags (field A1)</a></li><li class="l2"><a href="#6-rain-and-snow">6. Rain and snow</a></li></ul></nav>
+<main>
+<h1>EPW weather file format</h1>
+<h2 id="example-first-12-lines-of-an-epw-file">Example: first 12 lines of an EPW file</h2>
+<p>From <code>NOR_AK_Oslo.AP-Gardermoen.013840_TMYx.epw</code>. Lines 1–8 are the header records; lines 9–12 are the first four hourly data records.</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>LOCATION,Oslo.AP-Gardermoen,AK,NOR,SRC-TMYx,013840,60.20640,11.08000,1.0,207.6
+DESIGN CONDITIONS,1,2025 ASHRAE Handbook -- Fundamentals - Chapter 14 Climatic Design Information,Heating,1,-17.5,-15.3,-19.5,0.7,-17.2,-17.2,0.9,-14.7,10.8,3.8,9.4,2.8,1.3,20,0.627,Cooling,7,9.0,26.3,16.6,24.5,16.0,22.5,15.1,18.2,23.4,17.2,22.1,16.3,20.8,3.5,200,16.4,11.9,19.1,15.5,11.3,18.6,14.6,10.6,17.8,51.8,23.3,48.9,22.0,46.4,20.7,21.5,Extremes,9.2,7.9,6.9,-20.4,28.4,3.4,1.8,-22.9,29.8,-24.9,30.8,-26.8,31.8,-29.3,33.2,-20.7,19.5,3.4,1.1,-23.1,20.3,-25.1,20.9,-27.0,21.5,-29.4,22.2
+TYPICAL/EXTREME PERIODS,6,Summer - Week Nearest Max Temperature For Period,Extreme,7/27,8/ 2,Summer - Week Nearest Average Temperature For Period,Typical,8/17,8/23,Winter - Week Nearest Min Temperature For Period,Extreme,12/22,1/ 5,Winter - Week Nearest Average Temperature For Period,Typical,2/10,2/16,Autumn - Week Nearest Average Temperature For Period,Typical,10/27,11/ 2,Spring - Week Nearest Average Temperature For Period,Typical,4/ 5,4/11
+GROUND TEMPERATURES,3,.5,,,,-4.18,-5.06,-3.50,-1.05,5.35,10.29,13.62,14.64,12.91,9.07,3.95,-0.81,2,,,,-0.93,-2.50,-2.18,-0.88,3.40,7.27,10.37,12.03,11.68,9.50,5.97,2.23,4,,,,1.75,0.14,-0.21,0.28,2.70,5.31,7.70,9.36,9.75,8.81,6.74,4.20
+HOLIDAYS/DAYLIGHT SAVINGS,No,0,0,0
+COMMENTS 1,&quot;NCEI ISD/ERA5 - #years=[65] Period of Record=1940-2023; Jan=2003; Feb=2012; Mar=1994; Apr=2010; May=1975; Jun=1978; Jul=1995; Aug=1984; Sep=1960; Oct=1990; Nov=2016; Dec=1982&quot;
+COMMENTS 2,&quot;Downloaded from Climate.Onebuilding.org -- Ground temps represent undisturbed earth temperatures - calculated from this weather data.&quot;
+DATA PERIODS,1,1,Data,Sunday,1/ 1,12/31
+2003,1,1,1,0,?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9,-22.10,-24.30,81,98174,0,0,190,0,0,0,0,0,0,0,360,1.00,3,3,7000.0,77777,9,999999999,1,0.0850,51,88,0.400,0.0,0.0
+2003,1,1,2,0,?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9,-22.60,-24.90,80,98101,0,0,186,0,0,0,0,0,0,0,30,1.00,3,3,6000.0,77777,9,999999999,1,0.0850,51,88,0.400,0.0,0.0
+2003,1,1,3,0,?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9,-23.20,-25.60,79,98065,0,0,183,0,0,0,0,0,0,0,360,1.00,3,3,7000.0,77777,9,999999999,1,0.0850,51,88,0.400,0.0,0.0
+2003,1,1,4,0,?9?9?9?9E0?9?9?9?9?9?9?9?9?9?9?9?9?9*9*9?9*9,-23.40,-25.80,79,97985,0,0,183,0,0,0,0,0,0,0,30,1.00,5,5,7000.0,77777,9,999999999,1,0.0850,51,88,0.400,0.0,0.0</code></pre></div>
+<p>Each data row (lines 9–12) has 35 comma-separated fields. The field-by-field summary table (index, name, units, min, max, missing value) is in §3, also as CSV.</p>
+<p>Source: EnergyPlus 26.1 <em>Auxiliary Programs</em>, Weather Converter chapter:</p>
+<ul><li><a href="https://bigladdersoftware.com/epx/docs/26-1/auxiliary-programs/auxiliary-programs.html#energyplus-weather-file-epw-data-dictionary">https://bigladdersoftware.com/epx/docs/26-1/auxiliary-programs/auxiliary-programs.html#energyplus-weather-file-epw-data-dictionary</a></li><li><a href="https://bigladdersoftware.com/epx/docs/26-1/auxiliary-programs/auxiliary-programs.html#data-sourcesuncertainty">https://bigladdersoftware.com/epx/docs/26-1/auxiliary-programs/auxiliary-programs.html#data-sourcesuncertainty</a></li></ul>
+<p>Any EPW file that is made should open and display correctly in the EPW viewer at <a href="https://klimadataforbygninger.no/EPW_viewer.html">https://klimadataforbygninger.no/EPW_viewer.html</a>.</p>
+<hr>
+<h2 id="1-file-shape">1. File shape</h2>
+<ul><li>Plain text, comma-separated. <strong>Semicolons do not end lines.</strong></li><li>8 header records, in this order, followed by the data records:</li></ul>
+<div class="table"><table><thead><tr><th>#</th><th>Record keyword</th><th>Content</th></tr></thead><tbody><tr><td>1</td><td><code>LOCATION</code></td><td>city, region, country, source, WMO, latitude, longitude, time zone, elevation</td></tr><tr><td>2</td><td><code>DESIGN CONDITIONS</code></td><td>design conditions matched by WMO number</td></tr><tr><td>3</td><td><code>TYPICAL/EXTREME PERIODS</code></td><td>typical and extreme periods found by the Weather Converter's heuristic</td></tr><tr><td>4</td><td><code>GROUND TEMPERATURES</code></td><td>monthly "undisturbed" ground temperatures at N depths</td></tr><tr><td>5</td><td><code>HOLIDAYS/DAYLIGHT SAVING</code></td><td>leap year flag, daylight saving start and end, holidays</td></tr><tr><td>6</td><td><code>COMMENTS 1</code></td><td>free text</td></tr><tr><td>7</td><td><code>COMMENTS 2</code></td><td>free text</td></tr><tr><td>8</td><td><code>DATA PERIODS</code></td><td>number of periods, records per hour, each period's name, start weekday, start and end</td></tr></tbody></table></div>
+<h3 id="idd-conventions-used-in-the-dictionary">IDD conventions used in the dictionary</h3>
+<div class="table"><table><thead><tr><th>Tag</th><th>Meaning</th></tr></thead><tbody><tr><td><code>\minimum</code> / <code>\minimum&gt;</code></td><td>value must be ≥ / &gt; the number</td></tr><tr><td><code>\maximum</code> / <code>\maximum&lt;</code></td><td>value must be ≤ / &lt; the number</td></tr><tr><td><code>\missing</code></td><td>a value <strong>≥ this number</strong> counts as "missing", and the missing-data rules apply</td></tr><tr><td><code>\default</code></td><td>a blank field gets this value</td></tr><tr><td><code>\units</code></td><td>expected units</td></tr></tbody></table></div>
+<h3 id="date-fields-in-header-records">Date fields in header records</h3>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>!ESP(r)/EnergyPlus Weather Format
+!April 2002
+\memo Dates in the EPW file can be several formats:
+\memo &lt;number&gt;/&lt;number&gt;  (month/day)
+\memo &lt;number&gt; Month
+\memo Month &lt;number&gt;
+\memo &lt;number&gt; (taken to be Julian day of year)
+\memo Months are January, February, March, April, May,
+\memo            June, July, August, September, October, November, December
+\memo Months can be the first 3 letters of the month</code></pre></div>
+<div class="table"><table><thead><tr><th>Field contents</th><th>Meaning</th><th>Allowed in</th></tr></thead><tbody><tr><td><code>&lt;number&gt;</code></td><td>Julian day of year</td><td>every date field</td></tr><tr><td><code>&lt;number&gt;/&lt;number&gt;</code></td><td>month / day</td><td>every date field</td></tr><tr><td><code>&lt;number&gt;/&lt;number&gt;/&lt;number&gt;</code></td><td>month / day / year</td><td>DataPeriod only (special multiple-year file; see <code>RunPeriod:CustomRange</code>)</td></tr><tr><td><code>&lt;number&gt; Month</code></td><td>day and month</td><td>every date field</td></tr><tr><td><code>Month &lt;number&gt;</code></td><td>day and month</td><td>every date field</td></tr><tr><td><code>&lt;number&gt; Weekday in Month</code></td><td>numbered weekday of month</td><td>Holiday, DaylightSavingPeriod</td></tr><tr><td><code>Last Weekday In Month</code></td><td>last weekday of month</td><td>Holiday, DaylightSavingPeriod</td></tr></tbody></table></div>
+<p>Month = January … December, or the first three letters. Weekday = Sunday … Saturday, or the first three letters.</p>
+<hr>
+<h2 id="2-header-records">2. Header records</h2>
+<h3 id="2-1-location">2.1 LOCATION</h3>
+<p>Example: line 1 of the example file.</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>LOCATION,
+   A1, \field city
+   \type alpha
+   A2, \field State Province Region
+   \type alpha
+   A3, \field Country
+   \type alpha
+   A4, \field Source
+   \type alpha
+   N1, \field WMO
+    \note usually a 6 digit field. Used as alpha in EnergyPlus
+    \type alpha
+   N2 , \field Latitude
+       \units deg
+       \minimum -90.0
+       \maximum +90.0
+       \default 0.0
+       \note + is North, - is South, degree minutes represented in decimal (i.e. 30 minutes is .5)
+       \type real
+   N3 , \field Longitude
+       \units deg
+       \minimum -180.0
+       \maximum +180.0
+       \default 0.0
+       \note - is West, + is East, degree minutes represented in decimal (i.e. 30 minutes is .5)
+       \type real
+   N4 , \field TimeZone
+       \units hr - not on standard units list???
+       \minimum -12.0
+       \maximum +12.0
+       \default 0.0
+       \note  Time relative to GMT.
+       \type real
+   N5 ; \field Elevation
+       \units m
+       \minimum -1000.0
+       \maximum&lt; +9999.9
+       \default 0.0
+       \type real</code></pre></div>
+<p>The same fields as CSV (comma-delimited):</p>
+<div class="code"><span class="lang">CSV</span><button class="copy" type="button">Copy</button><pre class="lang-csv"><code>Fld,Name,Units,Min,Max,Default,Note
+A1,City,,,,,
+A2,State Province Region,,,,,
+A3,Country,,,,,
+A4,Source,,,,,
+N1,WMO,,,,,usually a 6 digit field. Used as alpha in EnergyPlus
+N2,Latitude,deg,-90.0,+90.0,0.0,&quot;+ is North, - is South, degree minutes represented in decimal (i.e. 30 minutes is .5)&quot;
+N3,Longitude,deg,-180.0,+180.0,0.0,&quot;- is West, + is East, degree minutes represented in decimal (i.e. 30 minutes is .5)&quot;
+N4,TimeZone,hr,-12.0,+12.0,0.0,Time relative to GMT
+N5,Elevation,m,-1000.0,&lt; +9999.9,0.0,</code></pre></div>
+<p>The LOCATION record duplicates the information required for the Location object.</p>
+<ul><li>With only a Run Period object (a weather file), the Location object is not needed.</li><li>With a Run Period and Design Day objects, the weather file's location is used, and it overrides any Location object.</li></ul>
+<h3 id="2-2-design-conditions">2.2 DESIGN CONDITIONS</h3>
+<p>Example: line 2 of the example file.</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>DESIGN CONDITIONS,
+     N1, \field Number of Design Conditions
+     A1, \field Design Condition Source
+         \note current sources are ASHRAE HOF 2009 US Design Conditions, Canadian Design Conditions
+         \note and World Design Conditions
+     A2, \field Design Condition Type (HEATING)
+       \note fields here will be dependent on the source, they are shown in a header/data format
+       \note in both the .rpt and .csv files that are produced by the WeatherConverter program
+     ...
+     An, \field Design Condition Type (COOLING)
+       \note same as note on Heating Design Conditions</code></pre></div>
+<p>The same fields as CSV (comma-delimited):</p>
+<div class="code"><span class="lang">CSV</span><button class="copy" type="button">Copy</button><pre class="lang-csv"><code>Fld,Name,Units,Min,Max,Default,Note
+N1,Number of Design Conditions,,,,,
+A1,Design Condition Source,,,,,&quot;current sources are ASHRAE HOF 2009 US Design Conditions, Canadian Design Conditions and World Design Conditions&quot;
+A2,Design Condition Type (HEATING),,,,,&quot;fields here will be dependent on the source, they are shown in a header/data format in both the .rpt and .csv files that are produced by the WeatherConverter program&quot;
+...,,,,,,
+An,Design Condition Type (COOLING),,,,,same as note on Heating Design Conditions</code></pre></div>
+<p>The design conditions are matched to the location by WMO number (World Meteorological Organization station number). The weather files carry the design conditions from the ASHRAE Handbook of Fundamentals 2009. Design Day definition files exist for all World, Canada and United States design conditions.</p>
+<h3 id="2-3-typical-extreme-periods">2.3 TYPICAL/EXTREME PERIODS</h3>
+<p>Example: line 3 of the example file.</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>TYPICAL/EXTREME PERIODS,
+     N1, \field Number of Typical/Extreme Periods
+     A1, \field Typical/Extreme Period 1 Name
+     A2, \field Typical/Extreme Period 1 Type
+     A3, \field Period 1 Start Day
+     A4, \field Period 1 End Day
+     \note repeat (A1-A3) until number of typical periods
+ -- etc to # of periods entered</code></pre></div>
+<p>The same fields as CSV (comma-delimited):</p>
+<div class="code"><span class="lang">CSV</span><button class="copy" type="button">Copy</button><pre class="lang-csv"><code>Fld,Name,Units,Min,Max,Default,Note
+N1,Number of Typical/Extreme Periods,,,,,
+A1,Typical/Extreme Period 1 Name,,,,,
+A2,Typical/Extreme Period 1 Type,,,,,
+A3,Period 1 Start Day,,,,,date field
+A4,Period 1 End Day,,,,,date field
+...,etc to # of periods entered,,,,,repeat (A1-A3) until number of typical periods</code></pre></div>
+<p>The dictionary's note says "repeat (A1-A3) until number of typical periods". The record defines four fields per period (A1–A4).</p>
+<p>The Weather Converter finds typical and extreme periods for full-year files with a heuristic method. They are also reported in the Weather Converter's statistics report.</p>
+<h3 id="2-4-ground-temperatures">2.4 GROUND TEMPERATURES</h3>
+<p>Example: line 4 of the example file.</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>GROUND TEMPERATURES,
+       N1, Number of Ground Temperature Depths
+       N2, \field Ground Temperature Depth 1
+         \units m
+       N3, \field Depth 1 Soil Conductivity
+         \units W/m-K,
+       N4, \field Depth 1 Soil Density
+         \units kg/m3
+       N5, \field Depth 1 Soil Specific Heat
+         \units J/kg-K,
+       N6, \field Depth 1 January Average Ground Temperature
+        \units C
+       N7, \field Depth 1 February Average Ground Temperature
+        \units C
+       N8, \field Depth 1 March Average Ground Temperature
+        \units C
+       N9, \field Depth 1 April Average Ground Temperature
+        \units C
+       N10, \field Depth 1 May Average Ground Temperature
+        \units C
+       N11, \field Depth 1 June Average Ground Temperature
+        \units C
+       N12, \field Depth 1 July Average Ground Temperature
+        \units C
+       N13, \field Depth 1 August Average Ground Temperature
+        \units C
+       N14, \field Depth 1 September Average Ground Temperature
+        \units C
+       N15, \field Depth 1 October Average Ground Temperature
+        \units C
+       N16, \field Depth 1 November Average Ground Temperature
+        \units C
+       N17, \field Depth 1 December Average Ground Temperature
+        \units C
+      \note repeat above (N2-N17) to number of ground temp depths indicated
+-- etc to # of depths entered</code></pre></div>
+<p>The same fields as CSV (comma-delimited):</p>
+<div class="code"><span class="lang">CSV</span><button class="copy" type="button">Copy</button><pre class="lang-csv"><code>Fld,Name,Units,Min,Max,Default,Note
+N1,Number of Ground Temperature Depths,,,,,
+N2,Ground Temperature Depth 1,m,,,,
+N3,Depth 1 Soil Conductivity,W/m-K,,,,
+N4,Depth 1 Soil Density,kg/m3,,,,
+N5,Depth 1 Soil Specific Heat,J/kg-K,,,,
+N6,Depth 1 January Average Ground Temperature,C,,,,
+N7,Depth 1 February Average Ground Temperature,C,,,,
+N8,Depth 1 March Average Ground Temperature,C,,,,
+N9,Depth 1 April Average Ground Temperature,C,,,,
+N10,Depth 1 May Average Ground Temperature,C,,,,
+N11,Depth 1 June Average Ground Temperature,C,,,,
+N12,Depth 1 July Average Ground Temperature,C,,,,
+N13,Depth 1 August Average Ground Temperature,C,,,,
+N14,Depth 1 September Average Ground Temperature,C,,,,
+N15,Depth 1 October Average Ground Temperature,C,,,,
+N16,Depth 1 November Average Ground Temperature,C,,,,
+N17,Depth 1 December Average Ground Temperature,C,,,,
+...,etc to # of depths entered,,,,,repeat above (N2-N17) to number of ground temp depths indicated</code></pre></div>
+<ul><li>The Weather Converter calculates <strong>"undisturbed"</strong> ground temperatures from a full year of data. The calculation is a heuristic, time-lagged one based on dry bulb temperature and location (Kusuda).</li><li>Soil properties cannot be calculated from weather observations, so the record is mainly for user information.</li><li>With the FC construction option, the 0.5 m depth values are used automatically if the user gives no values in <code>Site:GroundTemperature:FcfactorMethod</code>.</li><li>These temperatures <strong>should not be used for building losses</strong>: they are too extreme for soil under a conditioned building. They are appropriate for <code>GroundTemperatures:Surface</code> and <code>GroundTemperatures:Deep</code>.</li><li>For best results, use the Slab or Basement program to calculate monthly ground temperatures.</li><li>Without those preprocessors, a reasonable default for typical commercial buildings in the USA is 2 °C below the average indoor space temperature.</li></ul>
+<h3 id="2-5-holidays-daylight-saving">2.5 HOLIDAYS/DAYLIGHT SAVING</h3>
+<p>Example: line 5 of the example file.</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>HOLIDAYS/DAYLIGHT SAVING,
+     A1, \field LeapYear Observed
+      \type choice
+      \key Yes
+      \key No
+      \note Yes if Leap Year will be observed for this file
+      \note No if Leap Year days (29 Feb) should be ignored in this file
+     A2, \field Daylight Saving Start Day
+     A3, \field Daylight Saving End Day
+     N1, \field Number of Holidays (essentially unlimited)
+     A4, \field Holiday 1 Name
+     A5, \field Holiday 1 Day
+     \note repeat above two fields until Number of Holidays is reached
+-- etc to # of Holidays entered</code></pre></div>
+<p>The same fields as CSV (comma-delimited):</p>
+<div class="code"><span class="lang">CSV</span><button class="copy" type="button">Copy</button><pre class="lang-csv"><code>Fld,Name,Units,Min,Max,Default,Note
+A1,LeapYear Observed,,,,,&quot;choice: Yes, No. Yes if Leap Year will be observed for this file; No if Leap Year days (29 Feb) should be ignored in this file&quot;
+A2,Daylight Saving Start Day,,,,,date field
+A3,Daylight Saving End Day,,,,,date field
+N1,Number of Holidays,,,,,essentially unlimited
+A4,Holiday 1 Name,,,,,
+A5,Holiday 1 Day,,,,,date field
+...,etc to # of Holidays entered,,,,,repeat above two fields until Number of Holidays is reached</code></pre></div>
+<ul><li>These values are used when the matching fields of the RunPeriod object are set to "Yes".</li><li>Weather files on the EnergyPlus web site have no special days and no daylight saving period.</li><li>Special Day Period and Daylight Saving Period objects in the input file can add more of these.</li></ul>
+<h3 id="2-6-comments-1-comments-2">2.6 COMMENTS 1 / COMMENTS 2</h3>
+<p>Example: lines 6 and 7 of the example file.</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>COMMENTS 1, A1 \field Comments_1
+COMMENTS 2, A1 \field Comments_2</code></pre></div>
+<p>The same fields as CSV (comma-delimited):</p>
+<div class="code"><span class="lang">CSV</span><button class="copy" type="button">Copy</button><pre class="lang-csv"><code>Fld,Name,Units,Min,Max,Default,Note
+A1,Comments_1,,,,,record COMMENTS 1
+A1,Comments_2,,,,,record COMMENTS 2</code></pre></div>
+<p>Additional information about the weather data source, or anything that does not fit the other header records.</p>
+<h3 id="2-7-data-periods">2.7 DATA PERIODS</h3>
+<p>Example: line 8 of the example file.</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>DATA PERIODS,
+     N1, \field Number of Data Periods
+     N2, \field Number of Records per hour
+     A1, \field Data Period 1 Name/Description
+     A2, \field Data Period 1 Start Day of Week
+       \type choice
+       \key  Sunday
+       \key  Monday
+       \key  Tuesday
+       \key  Wednesday
+       \key  Thursday
+       \key  Friday
+       \key  Saturday
+     A3, \field Data Period 1 Start Day
+     A4, \field Data Period 1 End Day
+     \note repeat above to number of data periods
+-- etc to # of periods entered</code></pre></div>
+<p>The same fields as CSV (comma-delimited):</p>
+<div class="code"><span class="lang">CSV</span><button class="copy" type="button">Copy</button><pre class="lang-csv"><code>Fld,Name,Units,Min,Max,Default,Note
+N1,Number of Data Periods,,,,,
+N2,Number of Records per hour,,,,,
+A1,Data Period 1 Name/Description,,,,,
+A2,Data Period 1 Start Day of Week,,,,,&quot;choice: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday&quot;
+A3,Data Period 1 Start Day,,,,,date field
+A4,Data Period 1 End Day,,,,,date field
+...,etc to # of periods entered,,,,,repeat above to number of data periods</code></pre></div>
+<ul><li>A file may contain several data periods. This is not required, and it may be detrimental.</li><li>A file may contain several records per hour, but the count <strong>must match the Number of Time Steps in Hour</strong> of the simulation. Interval data gives the exact weather values for each time step, instead of interpolated values.</li><li>A file may contain several consecutive years. EnergyPlus processes the extra years when the RunPeriod's Number of Years field is used. There is no way to start in a year in the middle of the file.</li><li>A Run Period may not cross a data-period boundary.</li></ul>
+<hr>
+<h2 id="3-data-records-35-fields">3. Data records: 35 fields</h2>
+<p>Example: lines 9–12 of the example file (one row per hour).</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>! Actual data does not have a descriptor
+     N1, \field Year
+     N2, \field Month
+     N3, \field Day
+     N4, \field Hour
+     N5, \field Minute
+     A1, \field Data Source and Uncertainty Flags
+     \note Initial day of weather file is checked by EnergyPlus for validity (as shown below)
+     \note Each field is checked for &quot;missing&quot; as shown below. Reasonable values, calculated
+     \note values or the last &quot;good&quot; value is substituted.
+     N6, \field Dry Bulb Temperature
+        \units C
+        \minimum&gt; -70
+        \maximum&lt; 70
+        \missing 99.9
+     N7, \field Dew Point Temperature
+        \units C
+        \minimum&gt; -70
+        \maximum&lt; 70
+        \missing 99.9
+     N8, \field Relative Humidity
+         \missing 999.
+         \minimum 0
+         \maximum 110
+     N9, \field Atmospheric Station Pressure
+        \units Pa
+        \missing 999999.
+        \minimum&gt; 31000
+        \maximum&lt; 120000
+     N10, \field Extraterrestrial Horizontal Radiation
+        \units Wh/m2
+        \missing 9999.
+        \minimum 0
+     N11, \field Extraterrestrial Direct Normal Radiation
+        \units Wh/m2
+        \missing 9999.
+        \minimum 0
+     N12, \field Horizontal Infrared Radiation Intensity
+        \units Wh/m2
+        \missing 9999.
+        \minimum 0
+     N13, \field Global Horizontal Radiation
+        \units Wh/m2
+        \missing 9999.
+        \minimum 0
+     N14, \field Direct Normal Radiation
+        \units Wh/m2
+        \missing 9999.
+        \minimum 0
+     N15, \field Diffuse Horizontal Radiation
+        \units Wh/m2
+        \missing 9999.
+        \minimum 0
+     N16, \field Global Horizontal Illuminance
+        \units lux
+        \missing 999999.
+        \note will be missing if &gt; = 999900
+        \minimum 0
+     N17, \field Direct Normal Illuminance
+        \units lux
+        \missing 999999.
+        \note will be missing if &gt; = 999900
+        \minimum 0
+     N18, \field Diffuse Horizontal Illuminance
+        \units lux
+        \missing 999999.
+        \note will be missing if &gt; = 999900
+        \minimum 0
+     N19, \field Zenith Luminance
+        \units Cd/m2
+        \missing 9999.
+        \note will be missing if &gt; = 9999
+        \minimum 0
+     N20, \field Wind Direction
+        \units degrees
+        \missing 999.
+        \minimum 0
+        \maximum 360
+     N21, \field Wind Speed
+        \units m/s
+        \missing 999.
+        \minimum 0
+        \maximum 40
+     N22, \field Total Sky Cover
+        \missing 99
+        \minimum 0
+        \maximum 10
+     N23, \field Opaque Sky Cover (used if Horizontal IR Intensity missing)
+        \missing 99
+        \minimum 0
+        \maximum 10
+     N24, \field Visibility
+        \units km
+        \missing 9999
+     N25, \field Ceiling Height
+        \units m
+        \missing 99999
+     N26, \field Present Weather Observation
+     N27, \field Present Weather Codes
+     N28, \field Precipitable Water
+        \units mm
+        \missing 999
+     N29, \field Aerosol Optical Depth
+        \units thousandths
+        \missing .999
+     N30, \field Snow Depth
+        \units cm
+        \missing 999
+     N31, \field Days Since Last Snowfall
+        \missing 99
+     N32, \field Albedo
+        \missing 999
+     N33, \field Liquid Precipitation Depth
+          \units mm
+        \missing 999
+     N34; \field Liquid Precipitation Quantity
+          \units hr
+        \missing 99</code></pre></div>
+<p>Summary of the same fields:</p>
+<div class="table"><table><thead><tr><th>Idx</th><th>Fld</th><th>Name</th><th>Units</th><th>Min</th><th>Max</th><th>Missing (≥)</th></tr></thead><tbody><tr><td>0</td><td>N1</td><td>Year</td><td></td><td></td><td></td><td></td></tr><tr><td>1</td><td>N2</td><td>Month</td><td></td><td>1</td><td>12</td><td>cannot be missing</td></tr><tr><td>2</td><td>N3</td><td>Day</td><td></td><td>1</td><td>depends on month</td><td>cannot be missing</td></tr><tr><td>3</td><td>N4</td><td>Hour</td><td></td><td>1</td><td>24</td><td>cannot be missing</td></tr><tr><td>4</td><td>N5</td><td>Minute</td><td></td><td>1</td><td>60</td><td></td></tr><tr><td>5</td><td>A1</td><td>Data Source and Uncertainty Flags</td><td>text</td><td></td><td></td><td></td></tr><tr><td>6</td><td>N6</td><td>Dry Bulb Temperature</td><td>C</td><td>&gt; −70</td><td>&lt; 70</td><td>99.9</td></tr><tr><td>7</td><td>N7</td><td>Dew Point Temperature</td><td>C</td><td>&gt; −70</td><td>&lt; 70</td><td>99.9</td></tr><tr><td>8</td><td>N8</td><td>Relative Humidity</td><td>%</td><td>0</td><td>110</td><td>999</td></tr><tr><td>9</td><td>N9</td><td>Atmospheric Station Pressure</td><td>Pa</td><td>&gt; 31000</td><td>&lt; 120000</td><td>999999</td></tr><tr><td>10</td><td>N10</td><td>Extraterrestrial Horizontal Radiation</td><td>Wh/m2</td><td>0</td><td></td><td>9999</td></tr><tr><td>11</td><td>N11</td><td>Extraterrestrial Direct Normal Radiation</td><td>Wh/m2</td><td>0</td><td></td><td>9999</td></tr><tr><td>12</td><td>N12</td><td>Horizontal Infrared Radiation Intensity</td><td>Wh/m2</td><td>0</td><td></td><td>9999</td></tr><tr><td>13</td><td>N13</td><td>Global Horizontal Radiation</td><td>Wh/m2</td><td>0</td><td></td><td>9999</td></tr><tr><td>14</td><td>N14</td><td>Direct Normal Radiation</td><td>Wh/m2</td><td>0</td><td></td><td>9999</td></tr><tr><td>15</td><td>N15</td><td>Diffuse Horizontal Radiation</td><td>Wh/m2</td><td>0</td><td></td><td>9999</td></tr><tr><td>16</td><td>N16</td><td>Global Horizontal Illuminance</td><td>lux</td><td>0</td><td></td><td>999999. Missing if ≥ 999900</td></tr><tr><td>17</td><td>N17</td><td>Direct Normal Illuminance</td><td>lux</td><td>0</td><td></td><td>999999. Missing if ≥ 999900</td></tr><tr><td>18</td><td>N18</td><td>Diffuse Horizontal Illuminance</td><td>lux</td><td>0</td><td></td><td>999999. Missing if ≥ 999900</td></tr><tr><td>19</td><td>N19</td><td>Zenith Luminance</td><td>Cd/m2</td><td>0</td><td></td><td>9999</td></tr><tr><td>20</td><td>N20</td><td>Wind Direction</td><td>degrees</td><td>0</td><td>360</td><td>999</td></tr><tr><td>21</td><td>N21</td><td>Wind Speed</td><td>m/s</td><td>0</td><td>40</td><td>999</td></tr><tr><td>22</td><td>N22</td><td>Total Sky Cover</td><td>tenths</td><td>0</td><td>10</td><td>99</td></tr><tr><td>23</td><td>N23</td><td>Opaque Sky Cover</td><td>tenths</td><td>0</td><td>10</td><td>99</td></tr><tr><td>24</td><td>N24</td><td>Visibility</td><td>km</td><td></td><td></td><td>9999</td></tr><tr><td>25</td><td>N25</td><td>Ceiling Height</td><td>m</td><td></td><td></td><td>99999</td></tr><tr><td>26</td><td>N26</td><td>Present Weather Observation</td><td></td><td></td><td></td><td></td></tr><tr><td>27</td><td>N27</td><td>Present Weather Codes</td><td>9-digit text</td><td></td><td></td><td></td></tr><tr><td>28</td><td>N28</td><td>Precipitable Water</td><td>mm</td><td></td><td></td><td>999</td></tr><tr><td>29</td><td>N29</td><td>Aerosol Optical Depth</td><td>thousandths</td><td></td><td></td><td>.999</td></tr><tr><td>30</td><td>N30</td><td>Snow Depth</td><td>cm</td><td></td><td></td><td>999</td></tr><tr><td>31</td><td>N31</td><td>Days Since Last Snowfall</td><td></td><td></td><td></td><td>99</td></tr><tr><td>32</td><td>N32</td><td>Albedo</td><td>ratio (unitless)</td><td></td><td></td><td>999</td></tr><tr><td>33</td><td>N33</td><td>Liquid Precipitation Depth</td><td>mm</td><td></td><td></td><td>999</td></tr><tr><td>34</td><td>N34</td><td>Liquid Precipitation Quantity</td><td>hr</td><td></td><td></td><td>99</td></tr></tbody></table></div>
+<p>The same table as CSV (comma-delimited):</p>
+<div class="code"><span class="lang">CSV</span><button class="copy" type="button">Copy</button><pre class="lang-csv"><code>Idx,Fld,Name,Units,Min,Max,Missing (≥)
+0,N1,Year,,,,
+1,N2,Month,,1,12,cannot be missing
+2,N3,Day,,1,depends on month,cannot be missing
+3,N4,Hour,,1,24,cannot be missing
+4,N5,Minute,,1,60,
+5,A1,Data Source and Uncertainty Flags,text,,,
+6,N6,Dry Bulb Temperature,C,&gt; −70,&lt; 70,99.9
+7,N7,Dew Point Temperature,C,&gt; −70,&lt; 70,99.9
+8,N8,Relative Humidity,%,0,110,999
+9,N9,Atmospheric Station Pressure,Pa,&gt; 31000,&lt; 120000,999999
+10,N10,Extraterrestrial Horizontal Radiation,Wh/m2,0,,9999
+11,N11,Extraterrestrial Direct Normal Radiation,Wh/m2,0,,9999
+12,N12,Horizontal Infrared Radiation Intensity,Wh/m2,0,,9999
+13,N13,Global Horizontal Radiation,Wh/m2,0,,9999
+14,N14,Direct Normal Radiation,Wh/m2,0,,9999
+15,N15,Diffuse Horizontal Radiation,Wh/m2,0,,9999
+16,N16,Global Horizontal Illuminance,lux,0,,999999. Missing if ≥ 999900
+17,N17,Direct Normal Illuminance,lux,0,,999999. Missing if ≥ 999900
+18,N18,Diffuse Horizontal Illuminance,lux,0,,999999. Missing if ≥ 999900
+19,N19,Zenith Luminance,Cd/m2,0,,9999
+20,N20,Wind Direction,degrees,0,360,999
+21,N21,Wind Speed,m/s,0,40,999
+22,N22,Total Sky Cover,tenths,0,10,99
+23,N23,Opaque Sky Cover,tenths,0,10,99
+24,N24,Visibility,km,,,9999
+25,N25,Ceiling Height,m,,,99999
+26,N26,Present Weather Observation,,,,
+27,N27,Present Weather Codes,9-digit text,,,
+28,N28,Precipitable Water,mm,,,999
+29,N29,Aerosol Optical Depth,thousandths,,,.999
+30,N30,Snow Depth,cm,,,999
+31,N31,Days Since Last Snowfall,,,,99
+32,N32,Albedo,ratio (unitless),,,999
+33,N33,Liquid Precipitation Depth,mm,,,999
+34,N34,Liquid Precipitation Quantity,hr,,,99</code></pre></div>
+<p>Notes from the dictionary:</p>
+<ul><li>The initial day of the weather file is checked by EnergyPlus for validity.</li><li>Each field is checked for "missing". In its place, EnergyPlus substitutes a reasonable value, a calculated value or the last "good" value.</li><li>Hour 1 is 00:01 to 01:00.</li><li>Dry bulb and dew point are full numeric fields (<code>23.6</code>), not integers in tenths.</li><li>Station pressure limits come from the standard barometric pressure for all elevations of the world.</li><li>Radiation and illuminance values are amounts received <strong>during the number of minutes before</strong> the time indicated.</li><li>Illuminance is the average in hundreds of lux. Zenith luminance is the average in tens of Cd/m2.</li><li>Wind direction: North = 0.0, East = 90.0, South = 180.0, West = 270.0. If calm, the direction is zero.</li><li>Total sky cover: 1 means 1/10 covered and 10 means total coverage.</li><li>Ceiling height: 77777 = unlimited ceiling height, 88888 = cirroform ceiling.</li><li>Precipitable water is not rain. It is not used because its reporting is unreliable.</li><li>The field descriptions are taken from the IWEC manual.</li></ul>
+<hr>
+<h2 id="4-horizontal-infrared-radiation-when-missing">4. Horizontal infrared radiation when missing</h2>
+<p>When N12 is missing, it is calculated from the Opaque Sky Cover field (Walton 1983; Clark &amp; Allen 1978):</p>
+<div class="code"><button class="copy" type="button">Copy</button><pre><code>Horizontal_IR = ε · σ · T_drybulb⁴        [W/m²], σ = 5.6697e-8 W/m²-K⁴, T_drybulb in K
+ε = (0.787 + 0.764 · ln(T_dewpoint / 273)) · (1 + 0.0224 N − 0.0035 N² + 0.00028 N³)
+T_dewpoint in K, N = opaque sky cover in tenths</code></pre></div>
+<p>Example: clear sky (N = 0), T_drybulb = 273 + 20 = 293 K, T_dewpoint = 273 + 10 = 283 K: ε = 0.787 + 0.764 × 0.036 = 0.815, and Horizontal_IR = 0.815 × 5.6697e-8 × 293⁴ = 340.6 W/m².</p>
+<p>References:</p>
+<ul><li>Walton, G. N. 1983. <em>Thermal Analysis Research Program Reference Manual</em>. NBSSIR 83-2655. National Bureau of Standards, p. 21.</li><li>Clark, G. and C. Allen. "The Estimation of Atmospheric Radiation for Clear and Cloudy Skies." <em>Proceedings 2nd National Passive Solar Conference (AS/ISES)</em>, 1978, pp. 675–678.</li></ul>
+<hr>
+<h2 id="5-data-source-and-uncertainty-flags-field-a1">5. Data Source and Uncertainty Flags (field A1)</h2>
+<p>The EPW format puts all the source and uncertainty flags into one field. Each data element has a source flag and an uncertainty flag, and its position in the string matches the element's place in the data record. Most sources use the TMY2 fields and values.</p>
+<div class="table"><table><thead><tr><th>Data element</th><th>Source flag values</th><th>Uncertainty flag values</th></tr></thead><tbody><tr><td>Dry Bulb Temperature</td><td>A–F</td><td>0–9</td></tr><tr><td>Dew Point Temperature</td><td>A–F</td><td>0–9</td></tr><tr><td>Relative Humidity</td><td>A–F</td><td>0–9</td></tr><tr><td>Atmospheric Station Pressure</td><td>A–F</td><td>0–9</td></tr><tr><td>Horizontal Infrared Radiation</td><td>A–H, ?</td><td>0–9</td></tr><tr><td>Global Horizontal Radiation</td><td>A–H, ?</td><td>0–9</td></tr><tr><td>Direct Normal Radiation</td><td>A–H, ?</td><td>0–9</td></tr><tr><td>Diffuse Horizontal Radiation</td><td>A–H, ?</td><td>0–9</td></tr><tr><td>Global Horizontal Illuminance</td><td>I, ?</td><td>0–9</td></tr><tr><td>Direct Normal Illuminance</td><td>I, ?</td><td>0–9</td></tr><tr><td>Diffuse Horizontal Illuminance</td><td>I, ?</td><td>0–9</td></tr><tr><td>Zenith Luminance</td><td>I, ?</td><td>0–9</td></tr><tr><td>Wind Direction</td><td>A–F</td><td>0–9</td></tr><tr><td>Wind Speed</td><td>A–F</td><td>0–9</td></tr><tr><td>Total Sky Cover</td><td>A–F</td><td>0–9</td></tr><tr><td>Opaque Sky Cover</td><td>A–F</td><td>0–9</td></tr><tr><td>Visibility</td><td>A–F, ?</td><td>0–9</td></tr><tr><td>Ceiling Height</td><td>A–F, ?</td><td>0–9</td></tr><tr><td>Precipitable Water</td><td>A–F</td><td>0–9</td></tr><tr><td>Broadband Aerosol Optical Depth</td><td>A–F</td><td>0–9</td></tr><tr><td>Snow Depth</td><td>A–F, ?</td><td>0–9</td></tr><tr><td>Days Since Last Snowfall</td><td>A–F, ?</td><td>0–9</td></tr></tbody></table></div>
+<p><strong>Solar radiation and illuminance data source flags</strong></p>
+<div class="table"><table><thead><tr><th>Flag</th><th>Definition</th></tr></thead><tbody><tr><td>A</td><td>Post-1976 measured solar radiation data as received from NCDC or other sources</td></tr><tr><td>B</td><td>Same as "A" except the global horizontal data underwent a calibration correction</td></tr><tr><td>C</td><td>Pre-1976 measured global horizontal data (direct and diffuse were not measured before 1976), adjusted from solar to local time, usually with a calibration correction</td></tr><tr><td>D</td><td>Data derived from the other two elements of solar radiation using the relationship global = diffuse + direct × cosine(zenith)</td></tr><tr><td>E</td><td>Modeled solar radiation data using inputs of observed sky cover (cloud amount) and aerosol optical depths derived from direct normal data collected at the same location</td></tr><tr><td>F</td><td>Modeled solar radiation data using interpolated sky cover and aerosol optical depths derived from direct normal data collected at the same location</td></tr><tr><td>G</td><td>Modeled solar radiation data using observed sky cover and aerosol optical depths estimated from geographical relationships</td></tr><tr><td>H</td><td>Modeled solar radiation data using interpolated sky cover and estimated aerosol optical depths</td></tr><tr><td>I</td><td>Modeled illuminance or luminance data derived from measured or modeled solar radiation data</td></tr><tr><td>?</td><td>Source does not fit any of the above categories. Used for nighttime values and missing data</td></tr></tbody></table></div>
+<p><strong>Solar radiation and illuminance data uncertainty flags</strong></p>
+<div class="table"><table><thead><tr><th>Flag</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>0</th></tr></thead><tbody><tr><td>Uncertainty range (%)</td><td>not used</td><td>2–4</td><td>4–6</td><td>6–9</td><td>9–13</td><td>13–18</td><td>18–25</td><td>25–35</td><td>35–50</td><td>not applicable</td></tr></tbody></table></div>
+<p><strong>Meteorological data source flags</strong></p>
+<div class="table"><table><thead><tr><th>Flag</th><th>Definition</th></tr></thead><tbody><tr><td>A</td><td>Data as received from NCDC, converted to SI units</td></tr><tr><td>B</td><td>Linearly interpolated</td></tr><tr><td>C</td><td>Non-linearly interpolated to fill data gaps from 6 to 47 hours in length</td></tr><tr><td>D</td><td>Not used</td></tr><tr><td>E</td><td>Modeled or estimated, except: precipitable water, calculated from radiosonde data; dew point temperature calculated from dry bulb temperature and relative humidity; and relative humidity calculated from dry bulb temperature and dew point temperature</td></tr><tr><td>F</td><td>Precipitable water, calculated from surface vapor pressure; aerosol optical depth, estimated from geographic correlation</td></tr><tr><td>?</td><td>Source does not fit any of the above. Used mostly for missing data</td></tr></tbody></table></div>
+<p><strong>Meteorological uncertainty flags</strong></p>
+<div class="table"><table><thead><tr><th>Flag</th><th>Definition</th></tr></thead><tbody><tr><td>1–6</td><td>Not used</td></tr><tr><td>7</td><td>Uncertainty consistent with NWS practices and the instrument or observation used to obtain the data</td></tr><tr><td>8</td><td>Greater uncertainty than 7 because values were interpolated or estimated</td></tr><tr><td>9</td><td>Greater uncertainty than 8 or unknown</td></tr><tr><td>0</td><td>Not definable</td></tr></tbody></table></div>
+<hr>
+<h2 id="6-rain-and-snow">6. Rain and snow</h2>
+<p><strong>Present Weather Observation (N26)</strong></p>
+<div class="table"><table><thead><tr><th>Value</th><th>Meaning</th></tr></thead><tbody><tr><td>0</td><td>Weather observation made. The weather codes are taken from the next field</td></tr><tr><td>9</td><td>Weather observation not made, or missing</td></tr></tbody></table></div>
+<p>These two fields are used mainly for rain and wet surfaces. A missing observation or a missing weather code means <strong>no rain</strong>.</p>
+<p><strong>Present Weather Codes (N27)</strong></p>
+<ul><li>They follow the TMY2 conventions. The field may look numeric, but it is <strong>a text field of 9 single digits</strong>.</li><li>Formats that do not follow this convention (for example TMY) are converted to it as far as possible by the Weather Converter.</li><li>The most important columns are the ones for liquid precipitation, when the building surfaces would be wet.</li><li>EnergyPlus uses Snow Depth, not these codes, to decide whether snow is on the ground.</li></ul>
+<p>In every column, <strong>9</strong> = none if the observation indicator is 0. If the indicator is 9, then 9 = unknown or missing.</p>
+<div class="table"><table><thead><tr><th>Col</th><th>Element</th><th>Values</th></tr></thead><tbody><tr><td>1</td><td>Thunderstorm, tornado, or squall</td><td>0 thunderstorm: lightning and thunder, wind gusts &lt; 25.7 m/s, hail (if any) &lt; 1.9 cm · 1 heavy or severe thunderstorm: frequent intense lightning and thunder, wind gusts &gt; 25.7 m/s, hail (if any) ≥ 1.9 cm · 2 report of tornado or waterspout · 4 moderate squall: wind speed suddenly rises by at least 8.2 m/s, reaching 11.3 m/s or more, for at least 1 minute · 6 water spout (from Jan 1984) · 7 funnel cloud (from Jan 1984) · 8 tornado (from Jan 1984)</td></tr><tr><td>2</td><td>Rain, rain showers, or freezing rain</td><td>0 light rain · 1 moderate rain · 2 heavy rain · 3 light rain showers · 4 moderate rain showers · 5 heavy rain showers · 6 light freezing rain · 7 moderate freezing rain · 8 heavy freezing rain. Light = up to 0.25 cm/h, moderate = 0.28–0.76 cm/h, heavy = more than 0.76 cm/h</td></tr><tr><td>3</td><td>Rain squalls, drizzle, or freezing drizzle</td><td>0 light rain squalls · 1 moderate rain squalls · 3 light drizzle · 4 moderate drizzle · 5 heavy drizzle · 6 light freezing drizzle · 7 moderate freezing drizzle · 8 heavy freezing drizzle. With other weather: light = up to 0.025 cm/h, moderate = 0.025–0.051 cm/h, heavy = more than 0.051 cm/h. Alone: light = visibility ≥ 1 km, moderate = 0.5–1 km, heavy = ≤ 0.5 km</td></tr><tr><td>4</td><td>Snow, snow pellets, or ice crystals</td><td>0 light snow · 1 moderate snow · 2 heavy snow · 3 light snow pellets · 4 moderate snow pellets · 5 heavy snow pellets · 6 light ice crystals · 7 moderate ice crystals · 8 heavy ice crystals. From April 1963, any ice crystals are recorded as 7</td></tr><tr><td>5</td><td>Snow showers, snow squalls, or snow grains</td><td>0 light snow · 1 moderate snow showers · 2 heavy snow showers · 3 light snow squall · 4 moderate snow squall · 5 heavy snow squall · 6 light snow grains · 7 moderate snow grains</td></tr><tr><td>6</td><td>Sleet, sleet showers, or hail</td><td>0 light ice pellet showers · 1 moderate ice pellet showers · 2 heavy ice pellet showers · 4 hail. Before April 1970, ice pellets were coded as sleet. From April 1970, sleet and small hail are ice pellets, coded 0, 1 or 2</td></tr><tr><td>7</td><td>Fog, blowing dust, or blowing sand</td><td>0 fog · 1 ice fog · 2 ground fog · 3 blowing dust · 4 blowing sand · 5 heavy fog · 6 glaze (from 1984) · 7 heavy ice fog (from 1984) · 8 heavy ground fog (from 1984). Recorded only when visibility &lt; 11 km</td></tr><tr><td>8</td><td>Smoke, haze, smoke and haze, blowing snow, blowing spray, or dust</td><td>0 smoke · 1 haze · 2 smoke and haze · 3 dust · 4 blowing snow · 5 blowing spray · 6 dust storm (from 1984) · 7 volcanic ash. Recorded only when visibility &lt; 11 km</td></tr><tr><td>9</td><td>Ice pellets</td><td>0 light ice pellets · 1 moderate ice pellets · 2 heavy ice pellets</td></tr></tbody></table></div>
+<p>Example: observation <code>0</code> with codes <code>929999999</code> means heavy rain in that data period. The period is usually an hour, but it depends on the intervals-per-hour field in DATA PERIODS.</p>
+<p><strong>Liquid Precipitation Depth (N33)</strong></p>
+<ul><li>It is the liquid precipitation (mm) observed at the time indicated, over the period given in Liquid Precipitation Quantity (N34).</li><li>If N33 is not missing, it is used and overrides the rain indicator (IsRain): rain is set when the hourly liquid precipitation is <strong>no less than 0.8 mm</strong>.</li><li>If the rain indicator shows rain and N33 is missing or zero, N33 is set to <strong>2.0 mm</strong>.</li></ul>
+<p><strong>Snow Depth (N30)</strong> tells EnergyPlus when snow is on the ground, which can change ground reflectance.</p>
+</main>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+var t=b.parentNode.querySelector('pre').innerText;
+function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1200)}
+if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){})}else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}a.remove()}
+})});
+</script>
+</body>
+</html>
