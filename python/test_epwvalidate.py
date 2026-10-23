@@ -49,6 +49,31 @@ class ConformanceTest(unittest.TestCase):
         self.assertEqual(epwvalidate.PROFILE_SIMIEN, epwvalidate.parse_profile("  SIMIEN "))
         self.assertIsNone(epwvalidate.parse_profile("energyplus"))
 
+    def test_space_matches_go_unicode_isspace(self):
+        """_SPACE must be exactly the set Go's unicode.IsSpace accepts.
+
+        It is the one place this version restates a Go built-in rather than
+        mirroring code, so nothing else would notice if it drifted: Python
+        would simply trim differently, and only files with an exotic space in
+        a field would disagree with Go. The characters are invisible, which
+        makes the line easy to corrupt by accident and impossible to review by
+        eye -- hence this test. Generated with:
+
+            for r := rune(0); r <= unicode.MaxRune; r++ { if unicode.IsSpace(r) ... }
+        """
+        want = [
+            0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x20, 0x85, 0xA0, 0x1680,
+            0x2000, 0x2001, 0x2002, 0x2003, 0x2004, 0x2005, 0x2006,
+            0x2007, 0x2008, 0x2009, 0x200A, 0x2028, 0x2029, 0x202F,
+            0x205F, 0x3000,
+        ]
+        got = [ord(c) for c in epwvalidate._SPACE]
+        self.assertEqual(
+            [f"U+{c:04X}" for c in want],
+            [f"U+{c:04X}" for c in got],
+            "_SPACE no longer matches Go's unicode.IsSpace; Python would trim differently",
+        )
+
     def test_broken_results_text(self):
         with open(os.path.join(ROOT, "testdata", "expected.json"), encoding="utf-8") as f:
             paths = sorted(p for p in json.load(f) if p.startswith("testdata/broken/"))
