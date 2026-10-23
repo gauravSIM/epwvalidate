@@ -120,8 +120,15 @@ if !rep.Valid {
 }
 ```
 
-`Validate(io.Reader)` and `ValidateBytes([]byte)` do the same for data already in memory. To use the package from
-another Go module without copying it, point to the folder in that module's `go.mod`:
+`Validate(io.Reader)` and `ValidateBytes([]byte)` do the same for data already in memory.
+
+Each has a `...With` form taking `Options`, which is how a profile is selected (see **Profiles** below):
+
+```go
+rep, err := epwvalidate.ValidateFileWith("file.epw", epwvalidate.Options{Profile: epwvalidate.ProfileSimien})
+```
+
+To use the package from another Go module without copying it, point to the folder in that module's `go.mod`:
 
 ```
 require epwvalidate v0.0.0
@@ -150,7 +157,26 @@ cd go && go run ./cmd/epwvalidate ../file.epw
 
 - Several files can be given at once.
 - `--json` prints the reports as a JSON array; each report also has a `file` property.
+- `--profile <name>` also checks the file against a consumer's rules (see **Profiles** below). An unknown name exits 2.
 - Exit code: `0` all files valid, `1` at least one file invalid, `2` a file could not be read or no file was given.
+
+## Profiles
+
+By default the validator answers one question: is this a correct EPW file? A profile adds a second, opt-in question
+on top — can a particular tool actually use it? The two are not the same: a one-week file is a correct EPW and no
+tool can run a year from it.
+
+A profile never changes the default report, and never weakens an EPW rule. Its rule IDs start with `S-`.
+
+| Profile | Question it answers |
+|---|---|
+| `simien` | Can this become a SIMIEN hourly climate file? It must hold one full year of 8760 hourly rows, with no missing values in the columns SIMIEN reads, no 29 February, and one record per hour. A missing albedo is filled with 0.20 rather than refused. |
+
+```bash
+cd go && go run ./cmd/epwvalidate --profile simien ../file.epw
+```
+
+The rules are defined in [SPEC.md](SPEC.md) §11.
 
 ## What the output looks like
 

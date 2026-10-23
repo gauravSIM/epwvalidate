@@ -1,6 +1,6 @@
 // Command epwvalidate checks EPW weather files.
 //
-//	epwvalidate [--json] file.epw [more.epw ...]
+//	epwvalidate [--json] [--profile simien] file.epw [more.epw ...]
 //
 // Exit code: 0 = all files valid, 1 = at least one file invalid,
 // 2 = a file could not be read or no file was given.
@@ -22,8 +22,9 @@ type fileReport struct {
 
 func main() {
 	asJSON := flag.Bool("json", false, "print the reports as JSON")
+	profile := flag.String("profile", "", "also check the file against a consumer's rules: simien")
 	flag.Usage = func() {
-		fmt.Fprintln(os.Stderr, "usage: epwvalidate [--json] file.epw [more.epw ...]")
+		fmt.Fprintln(os.Stderr, "usage: epwvalidate [--json] [--profile simien] file.epw [more.epw ...]")
 		flag.PrintDefaults()
 	}
 	flag.Parse()
@@ -31,11 +32,17 @@ func main() {
 		flag.Usage()
 		os.Exit(2)
 	}
+	p, ok := epwvalidate.ParseProfile(*profile)
+	if !ok {
+		fmt.Fprintf(os.Stderr, "unknown profile %q (known profiles: simien)\n", *profile)
+		os.Exit(2)
+	}
+	opt := epwvalidate.Options{Profile: p}
 
 	exit := 0
 	reports := []fileReport{}
 	for _, path := range flag.Args() {
-		rep, err := epwvalidate.ValidateFile(path)
+		rep, err := epwvalidate.ValidateFileWith(path, opt)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", path, err)
 			exit = 2

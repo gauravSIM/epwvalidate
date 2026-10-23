@@ -14,6 +14,7 @@ type column struct {
 	lo, hi       bound
 	missing      float64
 	core         bool // needed for simulation (spec D-MIS-1)
+	simien       bool // read by the simien profile, and not fillable (spec S-COL-1)
 	warnNegative bool // spec D-RNG-2
 }
 
@@ -24,22 +25,22 @@ var columns = [numFields]column{
 	{name: "Hour"},
 	{name: "Minute"},
 	{name: "Data Source and Uncertainty Flags"},
-	{name: "Dry Bulb Temperature", lo: gt(-70), hi: lt(70), missing: 99.9, core: true},
+	{name: "Dry Bulb Temperature", lo: gt(-70), hi: lt(70), missing: 99.9, core: true, simien: true},
 	{name: "Dew Point Temperature", lo: gt(-70), hi: lt(70), missing: 99.9},
-	{name: "Relative Humidity", lo: ge(0), hi: le(110), missing: 999, core: true},
+	{name: "Relative Humidity", lo: ge(0), hi: le(110), missing: 999, core: true, simien: true},
 	{name: "Atmospheric Station Pressure", lo: gt(31000), hi: lt(120000), missing: 999999, core: true},
 	{name: "Extraterrestrial Horizontal Radiation", lo: ge(0), missing: 9999},
 	{name: "Extraterrestrial Direct Normal Radiation", lo: ge(0), missing: 9999},
 	{name: "Horizontal Infrared Radiation Intensity", lo: ge(0), missing: 9999},
-	{name: "Global Horizontal Radiation", lo: ge(0), missing: 9999, core: true},
-	{name: "Direct Normal Radiation", lo: ge(0), missing: 9999, core: true},
-	{name: "Diffuse Horizontal Radiation", lo: ge(0), missing: 9999, core: true},
+	{name: "Global Horizontal Radiation", lo: ge(0), missing: 9999, core: true, simien: true},
+	{name: "Direct Normal Radiation", lo: ge(0), missing: 9999, core: true, simien: true},
+	{name: "Diffuse Horizontal Radiation", lo: ge(0), missing: 9999, core: true, simien: true},
 	{name: "Global Horizontal Illuminance", lo: ge(0), missing: 999900},
 	{name: "Direct Normal Illuminance", lo: ge(0), missing: 999900},
 	{name: "Diffuse Horizontal Illuminance", lo: ge(0), missing: 999900},
 	{name: "Zenith Luminance", lo: ge(0), missing: 9999},
-	{name: "Wind Direction", lo: ge(0), hi: le(360), missing: 999, core: true},
-	{name: "Wind Speed", lo: ge(0), hi: le(40), missing: 999, core: true},
+	{name: "Wind Direction", lo: ge(0), hi: le(360), missing: 999, core: true, simien: true},
+	{name: "Wind Speed", lo: ge(0), hi: le(40), missing: 999, core: true, simien: true},
 	{name: "Total Sky Cover", lo: ge(0), hi: le(10), missing: 99},
 	{name: "Opaque Sky Cover", lo: ge(0), hi: le(10), missing: 99},
 	{name: "Visibility", missing: 9999, warnNegative: true},
@@ -64,6 +65,7 @@ const (
 	colRelHumidity = 8
 	colWxObs       = 26
 	colWxCodes     = 27
+	colAlbedo      = 32
 )
 
 func (c *checker) checkRow(ln int, line string) {
@@ -207,6 +209,11 @@ func (c *checker) finishData() {
 			continue
 		}
 		c.rep.Summary.Missing[col.name] = n
+		// S-COL-1 replaces D-MIS-1 and D-MIS-2 for the columns it covers, so
+		// one missing column is reported once (SPEC.md §11).
+		if c.simienProfile() && col.simien {
+			continue
+		}
 		switch {
 		case col.core && n == c.rowsChecked:
 			c.errf("D-MIS-1", 0, i, col.name, "",
@@ -219,6 +226,7 @@ func (c *checker) finishData() {
 			c.warnf("D-MIS-3", 0, i, col.name, "", "%s is missing on every row", col.name)
 		}
 	}
+	c.finishSimien()
 }
 
 func (c *checker) checkTime(ln int, t [5]int) {
@@ -233,13 +241,20 @@ func (c *checker) checkTime(ln int, t [5]int) {
 		c.seqBlind()
 		return
 	}
-	if m == 2 && d == 29 && !(c.leapYes && isLeap(y)) {
-		reason := "the leap-year field is No"
-		if c.leapYes {
-			reason = fmt.Sprintf("%d is not a leap year", y)
+	if m == 2 && d == 29 {
+		if !(c.leapYes && isLeap(y)) {
+			reason := "the leap-year field is No"
+			if c.leapYes {
+				reason = fmt.Sprintf("%d is not a leap year", y)
+			}
+			c.errf("D-SEQ-5", ln, 2, "Day", "29", "row for 29 February, but %s", reason)
+			return // not part of the time sequence
 		}
-		c.errf("D-SEQ-5", ln, 2, "Day", "29", "row for 29 February, but %s", reason)
-		return // not part of the time sequence
+		// Allowed by the EPW rules; counted for S-LEAP-1 (SPEC.md §11.1).
+		if c.feb29 == 0 {
+			c.firstFeb29 = ln
+		}
+		c.feb29++
 	}
 	step := 1
 	if c.perHour == 1 {

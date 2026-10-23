@@ -79,7 +79,7 @@ Each finding reports the line number, the field, the value, a message and the ru
 are listed; the full count per rule is always reported.
 
 The validator exists in Go, Python, Node and C#. All four must give exactly the same findings, with the same
-messages, for every file; §11 says how this is checked. Their APIs, the JSON shape of a report and the command-line
+messages, for every file; §12 says how this is checked. Their APIs, the JSON shape of a report and the command-line
 tools are described in [README.md](README.md).
 
 ---
@@ -358,7 +358,46 @@ points:
 
 ---
 
-## 11. Tests
+## 11. Profiles (S)
+
+A profile is an **opt-in** set of extra rules for one consumer of the file. Without a profile the validator answers
+only the question in §0 — is this a correct EPW file — and a report is exactly what §1–§10 describe. Choosing a
+profile adds its rules on top; it never removes or weakens an EPW rule, and it never changes the default report.
+
+Profiles exist because "a correct EPW" and "usable by a given tool" are different questions. A one-week file is a
+correct EPW (§0) and no tool can run a year from it. Reporting that as an EPW error would be wrong; saying nothing
+leaves the caller to find out later. A profile lets the one validator answer both, without the default answer
+drifting.
+
+Profile rule IDs start with `S-`. A profile may report something the EPW rules allow, and may restate as an error
+something they report as a warning. It must not report the same column twice: where a profile rule covers what an
+EPW warning covers, the profile rule replaces it for the columns it applies to.
+
+### 11.1 `simien` — usable as a SIMIEN climate file
+
+SIMIEN's hourly climate file is a 12-column CSV holding one full year: day of year, hour, solar altitude, solar
+azimuth, dry bulb, relative humidity, global horizontal, direct normal and diffuse horizontal radiation, wind
+direction, wind speed and albedo. Solar altitude and azimuth are computed from the `LOCATION` coordinates, so the
+EPW does not carry them. The CSV has no missing-value codes: every cell is read as a real number.
+
+The columns the profile reads are dry bulb (6), relative humidity (8), global horizontal (13), direct normal (14),
+diffuse horizontal (15), wind direction (20), wind speed (21) and albedo (32). Station pressure (9) is a core column
+in §9 but is **not** read here, so a file without it is still usable.
+
+| ID | Sev | Rule |
+|---|---|---|
+| S-COL-1 | E | A column the profile reads, other than albedo, has missing values on any row. The count and the first line are reported. Replaces D-MIS-1 and D-MIS-2 for those columns: the target format cannot carry a missing code, so a missing hour would be read as a real value — 9999 W/m² of radiation, say, in a column whose range is 0–1400. |
+| S-ROWS-1 | E | The file does not hold 8760 data rows. A SIMIEN climate file is one full year, hour by hour. |
+| S-RATE-1 | E | `DATA PERIODS` declares more than one record per hour. The target format is hourly, and EPW radiation is Wh/m² per record, which equals W/m² only at one record per hour. |
+| S-LEAP-1 | E | The data holds rows for 29 February. The target format numbers days 1–365. |
+| S-ALB-1 | W | Albedo (32) has missing values. Albedo is a ground property and the standard SIMIEN station files carry one constant for the whole year, so a missing value is filled with 0.20 rather than refused. The count and the first line are reported. |
+
+`S-ROWS-1` counts rows, not periods: a file whose `DATA PERIODS` declares two half-years passes if the rows add up
+to 8760 and the sequence rules (§7) are satisfied.
+
+---
+
+## 12. Tests
 
 The Go version is the reference. Its tests check the points below and record its exact report for every test file
 in `testdata/expected.json`, and its text output for the broken files in `testdata/broken_results.txt`. The Python,
@@ -395,7 +434,7 @@ folder also checks every `.epw` file below it.
 When a rule changes: update this document, change the Go version, regenerate the test files and expected results
 with `cd go && go test -run 'TestFixtures|TestExpected' -update`, and make the other three versions pass again.
 
-## 12. Open questions
+## 13. Open questions
 
 1. **Core columns (D-MIS-1).** Is the list right? Should relative humidity *or* dew point be enough, since one can be
    calculated from the other?
@@ -403,4 +442,6 @@ with `cd go && go test -run 'TestFixtures|TestExpected' -update`, and make the o
    them?
 3. **Year changes (D-SEQ-4).** Should the year be allowed to change at any day boundary (e.g. for representative
    weeks), not only between months?
-4. **Strict mode.** Should there be an option where warnings also fail?
+4. **Strict mode.** Should there be an option where warnings also fail? §11 adds an options mechanism a strict
+   mode could reuse.
+5. **More profiles (§11).** Only `simien` exists. Is the shape right for a second consumer?

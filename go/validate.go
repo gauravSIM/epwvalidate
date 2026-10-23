@@ -116,28 +116,76 @@ func FormatText(name string, rep Report) string {
 // Summary.RuleCounts always holds the full count.
 const MaxIssuesPerRule = 20
 
+// Profile names an opt-in set of extra rules for one consumer of the file
+// (SPEC.md §11). The zero value checks the EPW rules only.
+type Profile string
+
+const (
+	// ProfileNone checks the EPW rules alone: is this a correct EPW file.
+	ProfileNone Profile = ""
+	// ProfileSimien also checks that the file can become a SIMIEN hourly
+	// climate file (SPEC.md §11.1). Its rule IDs start with "S-".
+	ProfileSimien Profile = "simien"
+)
+
+// Options change what a validation run checks. The zero value is the EPW
+// rules alone, which is what ValidateFile, Validate and ValidateBytes use.
+type Options struct {
+	// Profile adds a consumer's rules on top of the EPW rules. It never
+	// removes or weakens an EPW rule.
+	Profile Profile
+}
+
+// ParseProfile turns a profile name into a Profile. The empty string gives
+// ProfileNone. Names are matched case-insensitively.
+func ParseProfile(name string) (Profile, bool) {
+	switch strings.ToLower(strings.TrimSpace(name)) {
+	case "":
+		return ProfileNone, true
+	case string(ProfileSimien):
+		return ProfileSimien, true
+	}
+	return ProfileNone, false
+}
+
 // ValidateFile validates the EPW file at path. The error is only for I/O
 // failures; problems with the file's content are in the Report.
 func ValidateFile(path string) (Report, error) {
+	return ValidateFileWith(path, Options{})
+}
+
+// ValidateFileWith is ValidateFile with options.
+func ValidateFileWith(path string, opt Options) (Report, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return Report{}, err
 	}
-	return ValidateBytes(data), nil
+	return ValidateBytesWith(data, opt), nil
 }
 
 // Validate validates an EPW file read from r.
 func Validate(r io.Reader) (Report, error) {
+	return ValidateWith(r, Options{})
+}
+
+// ValidateWith is Validate with options.
+func ValidateWith(r io.Reader, opt Options) (Report, error) {
 	data, err := io.ReadAll(r)
 	if err != nil {
 		return Report{}, err
 	}
-	return ValidateBytes(data), nil
+	return ValidateBytesWith(data, opt), nil
 }
 
 // ValidateBytes validates the content of an EPW file.
 func ValidateBytes(data []byte) Report {
+	return ValidateBytesWith(data, Options{})
+}
+
+// ValidateBytesWith is ValidateBytes with options.
+func ValidateBytesWith(data []byte, opt Options) Report {
 	c := &checker{
+		opt:     opt,
 		perHour: 1,
 		rep: Report{
 			Errors:   []Issue{},
@@ -158,10 +206,14 @@ func ValidateBytes(data []byte) Report {
 // checker holds the state of one validation run.
 type checker struct {
 	rep Report
+	opt Options
 
 	leapYes bool     // HOLIDAYS/DAYLIGHT SAVINGS leap-year field is Yes
 	perHour int      // records per hour from DATA PERIODS (1 if unreadable)
 	periods []period // nil when DATA PERIODS could not be read
+
+	feb29      int // rows for 29 February that the EPW rules allow
+	firstFeb29 int
 
 	rowsChecked  int // data rows with 35 fields
 	missing      [numFields]int
