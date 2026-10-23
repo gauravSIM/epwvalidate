@@ -150,13 +150,50 @@ public static class EpwValidator
     /// <summary>How many issues of one rule are listed in a Report; Summary.RuleCounts always holds the full count.</summary>
     public const int MaxIssuesPerRule = 20;
 
+    /// <summary>
+    /// Names an opt-in set of extra rules for one consumer of the file (SPEC.md §11).
+    /// <see cref="None"/> checks the EPW rules only.
+    /// </summary>
+    public static class Profile
+    {
+        /// <summary>The EPW rules alone: is this a correct EPW file.</summary>
+        public const string None = "";
+        /// <summary>Also: can the file become a SIMIEN hourly climate file (SPEC.md §11.1).</summary>
+        public const string Simien = "simien";
+    }
+
+    /// <summary>
+    /// Changes what a validation run checks. The default is the EPW rules alone, which is what the
+    /// ValidateFile and Validate overloads without options use.
+    /// </summary>
+    /// <param name="Profile">A consumer's rules, added on top of the EPW rules. Never removes or weakens one.</param>
+    public sealed record Options(string Profile = EpwValidator.Profile.None);
+
+    static readonly string[] KnownProfiles = [Profile.None, Profile.Simien];
+
+    /// <summary>
+    /// Turns a profile name into a profile, or null when it is unknown. The empty string gives
+    /// <see cref="Profile.None"/>. Names are matched case-insensitively.
+    /// </summary>
+    public static string? ParseProfile(string? name)
+    {
+        var v = (name ?? "").Trim().ToLowerInvariant();
+        return Array.IndexOf(KnownProfiles, v) >= 0 ? v : null;
+    }
+
     /// <summary>Validates the EPW file at path. Throws only for I/O failures; problems with the content are in the Report.</summary>
-    public static Report ValidateFile(string path) => Validate(File.ReadAllBytes(path));
+    public static Report ValidateFile(string path) => ValidateFile(path, new Options());
+
+    /// <summary>Validates the EPW file at path with options.</summary>
+    public static Report ValidateFile(string path, Options options) => Validate(File.ReadAllBytes(path), options);
 
     /// <summary>Validates the content of an EPW file.</summary>
-    public static Report Validate(byte[] data) => Invariant(() =>
+    public static Report Validate(byte[] data) => Validate(data, new Options());
+
+    /// <summary>Validates the content of an EPW file with options.</summary>
+    public static Report Validate(byte[] data, Options options) => Invariant(() =>
     {
-        var c = new Checker();
+        var c = new Checker(options);
         c.Run(data);
         c.Rep.Valid = c.Rep.Summary.ErrorCount == 0;
         return c.Rep;
@@ -164,6 +201,9 @@ public static class EpwValidator
 
     /// <summary>Validates the content of an EPW file given as text.</summary>
     public static Report Validate(string text) => Validate(Encoding.UTF8.GetBytes(text));
+
+    /// <summary>Validates the content of an EPW file given as text, with options.</summary>
+    public static Report Validate(string text, Options options) => Validate(Encoding.UTF8.GetBytes(text), options);
 
     /// <summary>Returns the report as the command-line tool prints it.</summary>
     public static string FormatText(string name, Report rep) => Invariant(() =>
@@ -526,7 +566,7 @@ public static class EpwValidator
 
     const int NumFields = 35;
 
-    internal sealed record Column(string Name, Bound? Lo = null, Bound? Hi = null, double Missing = 0, bool Core = false, bool WarnNegative = false);
+    internal sealed record Column(string Name, Bound? Lo = null, Bound? Hi = null, double Missing = 0, bool Core = false, bool Simien = false, bool WarnNegative = false);
 
     static readonly Column[] Columns =
     {
@@ -536,22 +576,22 @@ public static class EpwValidator
         new("Hour"),
         new("Minute"),
         new("Data Source and Uncertainty Flags"),
-        new("Dry Bulb Temperature", Gt(-70), Lt(70), 99.9, Core: true),
+        new("Dry Bulb Temperature", Gt(-70), Lt(70), 99.9, Core: true, Simien: true),
         new("Dew Point Temperature", Gt(-70), Lt(70), 99.9),
-        new("Relative Humidity", Ge(0), Le(110), 999, Core: true),
+        new("Relative Humidity", Ge(0), Le(110), 999, Core: true, Simien: true),
         new("Atmospheric Station Pressure", Gt(31000), Lt(120000), 999999, Core: true),
         new("Extraterrestrial Horizontal Radiation", Ge(0), null, 9999),
         new("Extraterrestrial Direct Normal Radiation", Ge(0), null, 9999),
         new("Horizontal Infrared Radiation Intensity", Ge(0), null, 9999),
-        new("Global Horizontal Radiation", Ge(0), null, 9999, Core: true),
-        new("Direct Normal Radiation", Ge(0), null, 9999, Core: true),
-        new("Diffuse Horizontal Radiation", Ge(0), null, 9999, Core: true),
+        new("Global Horizontal Radiation", Ge(0), null, 9999, Core: true, Simien: true),
+        new("Direct Normal Radiation", Ge(0), null, 9999, Core: true, Simien: true),
+        new("Diffuse Horizontal Radiation", Ge(0), null, 9999, Core: true, Simien: true),
         new("Global Horizontal Illuminance", Ge(0), null, 999900),
         new("Direct Normal Illuminance", Ge(0), null, 999900),
         new("Diffuse Horizontal Illuminance", Ge(0), null, 999900),
         new("Zenith Luminance", Ge(0), null, 9999),
-        new("Wind Direction", Ge(0), Le(360), 999, Core: true),
-        new("Wind Speed", Ge(0), Le(40), 999, Core: true),
+        new("Wind Direction", Ge(0), Le(360), 999, Core: true, Simien: true),
+        new("Wind Speed", Ge(0), Le(40), 999, Core: true, Simien: true),
         new("Total Sky Cover", Ge(0), Le(10), 99),
         new("Opaque Sky Cover", Ge(0), Le(10), 99),
         new("Visibility", Missing: 9999, WarnNegative: true),
@@ -567,7 +607,12 @@ public static class EpwValidator
         new("Liquid Precipitation Quantity", Missing: 99, WarnNegative: true),
     };
 
-    const int ColYear = 0, ColMinute = 4, ColFlags = 5, ColDryBulb = 6, ColDewPoint = 7, ColRelHumidity = 8, ColWxObs = 26, ColWxCodes = 27;
+    const int ColYear = 0, ColMinute = 4, ColFlags = 5, ColDryBulb = 6, ColDewPoint = 7, ColRelHumidity = 8, ColWxObs = 26, ColWxCodes = 27, ColAlbedo = 32;
+
+    // simien profile (SPEC.md §11.1): one full year of hourly values, 365 x 24, and what a missing
+    // albedo is filled with. The standard SIMIEN station files carry that constant for the year.
+    const int SimienRows = 8760;
+    const string SimienDefaultAlbedo = "0.20";
 
     static bool IsNineDigits(string s) => s.Length == 9 && s.All(ch => ch is >= '0' and <= '9');
 
@@ -601,7 +646,13 @@ public static class EpwValidator
     sealed class Checker
     {
         public readonly Report Rep = new();
+        readonly Options opt;
+        int feb29; // rows for 29 February that the EPW rules allow
+        int firstFeb29;
         bool leapYes; // leap-year field is Yes
+
+        public Checker(Options? options = null) => opt = options ?? new Options();
+
         long perHour = 1; // records per hour from DATA PERIODS
         List<Period>? periods; // null when DATA PERIODS could not be read
         int rowsChecked; // data rows with 35 fields
@@ -1156,6 +1207,9 @@ public static class EpwValidator
                 int n = missing[i];
                 if (n == 0) continue;
                 Rep.Summary.Missing[c.Name] = n;
+                // S-COL-1 replaces D-MIS-1 and D-MIS-2 for the columns it covers, so one missing
+                // column is reported once (SPEC.md §11).
+                if (SimienProfile && c.Simien) continue;
                 if (c.Core && n == rowsChecked)
                     Err("D-MIS-1", 0, i, c.Name, "", $"{c.Name} is missing on every row; the file cannot be used for simulation");
                 else if (c.Core)
@@ -1163,6 +1217,52 @@ public static class EpwValidator
                 else if (n == rowsChecked)
                     Warn("D-MIS-3", 0, i, c.Name, "", $"{c.Name} is missing on every row");
             }
+            FinishSimien();
+        }
+
+        bool SimienProfile => opt.Profile == Profile.Simien;
+
+        /// <summary>
+        /// The simien profile (SPEC.md §11.1): can this EPW become a SIMIEN hourly climate file?
+        /// A different question from "is this a correct EPW", so these rules are opt-in and never
+        /// change the default report.
+        /// <para>
+        /// The target is a 12-column CSV holding one full year. Two of its columns, solar altitude
+        /// and azimuth, are computed from the LOCATION coordinates and are not carried by the EPW.
+        /// The rest are read straight across -- which is why a missing value matters here and not
+        /// in an EPW: the CSV has no missing code, so an unfilled hour is read as a real number.
+        /// </para>
+        /// </summary>
+        void FinishSimien()
+        {
+            if (!SimienProfile) return;
+
+            for (int i = 0; i < NumFields; i++)
+            {
+                var c = Columns[i];
+                int n = missing[i];
+                if (n == 0 || !c.Simien) continue;
+                Err("S-COL-1", firstMissing[i], i, c.Name, "", $"{c.Name} is missing on {n} of {rowsChecked} rows (first at line {firstMissing[i]}); a SIMIEN climate file has no missing code, so the missing hours would be read as real values");
+            }
+
+            // Albedo is a ground property, not weather, and the standard station files carry one
+            // constant for the year -- so a missing value has an answer, and refusing a year of
+            // good weather over it would be the rule biting the wrong case.
+            int alb = missing[ColAlbedo];
+            if (alb > 0)
+                Warn("S-ALB-1", firstMissing[ColAlbedo], ColAlbedo, Columns[ColAlbedo].Name, "", $"albedo is missing on {alb} of {rowsChecked} rows (first at line {firstMissing[ColAlbedo]}); it will be filled with {SimienDefaultAlbedo}");
+
+            if (feb29 > 0)
+                Err("S-LEAP-1", firstFeb29, 2, "Day", "29", $"the file has {feb29} rows for 29 February (first at line {firstFeb29}); a SIMIEN climate file numbers days 1-365");
+
+            if (perHour != 1)
+                Err("S-RATE-1", 0, -1, "", "", $"DATA PERIODS declares {perHour} records per hour; a SIMIEN climate file is hourly, and EPW radiation is Wh/m2 per record, which equals W/m2 only at one record per hour");
+
+            // Counted in rows rather than periods: how the year is split across DATA PERIODS is the
+            // EPW rules' business (§7), not this profile's.
+            int rows = Rep.Summary.DataRows;
+            if (rows != SimienRows)
+                Err("S-ROWS-1", 0, -1, "", "", $"the file has {rows} data rows; a SIMIEN climate file is one full year, {SimienRows} hourly rows");
         }
 
         void CheckTime(int ln, long[] t)
@@ -1175,11 +1275,17 @@ public static class EpwValidator
                 SeqBlind();
                 return;
             }
-            if (m == 2 && d == 29 && !(leapYes && IsLeap(y)))
+            if (m == 2 && d == 29)
             {
-                var reason = leapYes ? $"{y} is not a leap year" : "the leap-year field is No";
-                Err("D-SEQ-5", ln, 2, "Day", "29", $"row for 29 February, but {reason}");
-                return; // not part of the time sequence
+                if (!(leapYes && IsLeap(y)))
+                {
+                    var reason = leapYes ? $"{y} is not a leap year" : "the leap-year field is No";
+                    Err("D-SEQ-5", ln, 2, "Day", "29", $"row for 29 February, but {reason}");
+                    return; // not part of the time sequence
+                }
+                // Allowed by the EPW rules; counted for S-LEAP-1 (SPEC.md §11.1).
+                if (feb29 == 0) firstFeb29 = ln;
+                feb29++;
             }
             long step = 1;
             if (perHour == 1)

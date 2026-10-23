@@ -35,6 +35,51 @@ func conformanceFiles(t *testing.T) []string {
 	return files
 }
 
+// TestExpectedSimien records the simien profile's report for every test file
+// in testdata/expected_simien.json, the way TestExpected does for the default
+// rules. The other three versions check themselves against it, so all four
+// agree on the profile as well (SPEC.md §12).
+func TestExpectedSimien(t *testing.T) {
+	files := conformanceFiles(t)
+	reports := map[string]Report{}
+	for _, f := range files {
+		rep, err := ValidateFileWith(filepath.Join("..", f), Options{Profile: ProfileSimien})
+		if err != nil {
+			t.Fatal(err)
+		}
+		reports[f] = rep
+	}
+
+	var js bytes.Buffer
+	enc := json.NewEncoder(&js)
+	enc.SetIndent("", "  ")
+	enc.SetEscapeHTML(false)
+	if err := enc.Encode(reports); err != nil {
+		t.Fatal(err)
+	}
+
+	path := filepath.Join("..", "testdata", "expected_simien.json")
+	if *update {
+		if err := os.WriteFile(path, js.Bytes(), 0o644); err != nil {
+			t.Fatal(err)
+		}
+		return
+	}
+
+	disk, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatalf("%v; run: go test -run 'TestFixtures|TestExpected' -update", err)
+	}
+	var want, got any
+	if err := json.Unmarshal(disk, &want); err != nil {
+		t.Fatal(err)
+	}
+	_ = json.Unmarshal(js.Bytes(), &got)
+	if !reflect.DeepEqual(want, got) {
+		t.Errorf("%s is out of date; run: go test -run 'TestFixtures|TestExpected' -update", path)
+	}
+}
+
 func TestExpected(t *testing.T) {
 	files := conformanceFiles(t)
 	reports := map[string]Report{}

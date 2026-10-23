@@ -400,9 +400,9 @@ to 8760 and the sequence rules (§7) are satisfied.
 ## 12. Tests
 
 The Go version is the reference. Its tests check the points below and record its exact report for every test file
-in `testdata/expected.json`, and its text output for the broken files in `testdata/broken_results.txt`. The Python,
-Node and C# tests must reproduce both files exactly, so all four versions agree on every rule, message, line number
-and count.
+in `testdata/expected.json`, its report under each profile (§11) in `testdata/expected_<profile>.json`, and its text
+output for the broken files in `testdata/broken_results.txt`. The Python, Node and C# tests must reproduce all of
+them exactly, so all four versions agree on every rule, message, line number and count.
 
 The Go tests (`cd go && go test ./...`) check:
 
@@ -427,6 +427,9 @@ The Go tests (`cd go && go test ./...`) check:
 5. **No cascades:** a deleted, duplicated or swapped row gives at most a few sequence errors.
 6. **Warnings:** each warning rule is triggered by a small change and leaves the file valid.
 7. **Unit tests** for date parsing and number parsing.
+8. **Profiles (§11):** every rule of a profile is triggered, and the same file stays valid without the profile. A
+   profile's report for every test file is recorded in `testdata/expected_<profile>.json`, which the other three
+   versions check themselves against.
 
 Files added to `testdata/partial/` or `testdata/broken/` are picked up by name. Setting `EPWVALIDATE_SAMPLES` to a
 folder also checks every `.epw` file below it.

@@ -176,6 +176,24 @@ A profile never changes the default report, and never weakens an EPW rule. Its r
 cd go && go run ./cmd/epwvalidate --profile simien ../file.epw
 ```
 
+From code, pass the profile as an option:
+
+```python
+epwvalidate.validate_file("file.epw", epwvalidate.Options(epwvalidate.PROFILE_SIMIEN))
+```
+
+```js
+epw.validateFile('file.epw', { profile: epw.PROFILE_SIMIEN });
+```
+
+```csharp
+EpwValidator.ValidateFile("file.epw", new EpwValidator.Options(EpwValidator.Profile.Simien));
+```
+
+```go
+epwvalidate.ValidateFileWith("file.epw", epwvalidate.Options{Profile: epwvalidate.ProfileSimien})
+```
+
 The rules are defined in [SPEC.md](SPEC.md) §11.
 
 ## What the output looks like

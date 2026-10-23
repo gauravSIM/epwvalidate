@@ -115,18 +115,43 @@ class Report:
         }
 
 
-def validate_file(path: str) -> Report:
+# Profiles name an opt-in set of extra rules for one consumer of the file
+# (SPEC.md section 11). PROFILE_NONE checks the EPW rules only.
+PROFILE_NONE = ""
+PROFILE_SIMIEN = "simien"
+
+_PROFILES = (PROFILE_NONE, PROFILE_SIMIEN)
+
+
+class Options:
+    """Changes what a validation run checks. The default is the EPW rules
+    alone, which is what validate() and validate_file() use."""
+
+    __slots__ = ("profile",)
+
+    def __init__(self, profile: str = PROFILE_NONE) -> None:
+        self.profile = profile
+
+
+def parse_profile(name: str) -> Optional[str]:
+    """Turns a profile name into a profile, or None when it is unknown. The
+    empty string gives PROFILE_NONE. Names are matched case-insensitively."""
+    v = (name or "").strip().lower()
+    return v if v in _PROFILES else None
+
+
+def validate_file(path: str, options: Optional[Options] = None) -> Report:
     """Validates the EPW file at path. Raises OSError only for I/O failures;
     problems with the file's content are in the Report."""
     with open(path, "rb") as f:
-        return validate(f.read())
+        return validate(f.read(), options)
 
 
-def validate(data: Union[bytes, str]) -> Report:
+def validate(data: Union[bytes, str], options: Optional[Options] = None) -> Report:
     """Validates the content of an EPW file."""
     if isinstance(data, str):
         data = data.encode("utf-8")
-    c = _Checker()
+    c = _Checker(options or Options())
     c.run(data)
     c.rep.valid = c.rep.summary.error_count == 0
     return c.rep
@@ -482,11 +507,11 @@ _NUM_FIELDS = 35
 
 
 class _Column:
-    __slots__ = ("name", "lo", "hi", "missing", "core", "warn_negative")
+    __slots__ = ("name", "lo", "hi", "missing", "core", "simien", "warn_negative")
 
-    def __init__(self, name, lo=None, hi=None, missing=0.0, core=False, warn_negative=False):
+    def __init__(self, name, lo=None, hi=None, missing=0.0, core=False, simien=False, warn_negative=False):
         self.name, self.lo, self.hi, self.missing = name, lo, hi, missing
-        self.core, self.warn_negative = core, warn_negative
+        self.core, self.simien, self.warn_negative = core, simien, warn_negative
 
 
 _COLUMNS = [
@@ -496,22 +521,22 @@ _COLUMNS = [
     _Column("Hour"),
     _Column("Minute"),
     _Column("Data Source and Uncertainty Flags"),
-    _Column("Dry Bulb Temperature", _gt(-70), _lt(70), 99.9, core=True),
+    _Column("Dry Bulb Temperature", _gt(-70), _lt(70), 99.9, core=True, simien=True),
     _Column("Dew Point Temperature", _gt(-70), _lt(70), 99.9),
-    _Column("Relative Humidity", _ge(0), _le(110), 999, core=True),
+    _Column("Relative Humidity", _ge(0), _le(110), 999, core=True, simien=True),
     _Column("Atmospheric Station Pressure", _gt(31000), _lt(120000), 999999, core=True),
     _Column("Extraterrestrial Horizontal Radiation", _ge(0), None, 9999),
     _Column("Extraterrestrial Direct Normal Radiation", _ge(0), None, 9999),
     _Column("Horizontal Infrared Radiation Intensity", _ge(0), None, 9999),
-    _Column("Global Horizontal Radiation", _ge(0), None, 9999, core=True),
-    _Column("Direct Normal Radiation", _ge(0), None, 9999, core=True),
-    _Column("Diffuse Horizontal Radiation", _ge(0), None, 9999, core=True),
+    _Column("Global Horizontal Radiation", _ge(0), None, 9999, core=True, simien=True),
+    _Column("Direct Normal Radiation", _ge(0), None, 9999, core=True, simien=True),
+    _Column("Diffuse Horizontal Radiation", _ge(0), None, 9999, core=True, simien=True),
     _Column("Global Horizontal Illuminance", _ge(0), None, 999900),
     _Column("Direct Normal Illuminance", _ge(0), None, 999900),
     _Column("Diffuse Horizontal Illuminance", _ge(0), None, 999900),
     _Column("Zenith Luminance", _ge(0), None, 9999),
-    _Column("Wind Direction", _ge(0), _le(360), 999, core=True),
-    _Column("Wind Speed", _ge(0), _le(40), 999, core=True),
+    _Column("Wind Direction", _ge(0), _le(360), 999, core=True, simien=True),
+    _Column("Wind Speed", _ge(0), _le(40), 999, core=True, simien=True),
     _Column("Total Sky Cover", _ge(0), _le(10), 99),
     _Column("Opaque Sky Cover", _ge(0), _le(10), 99),
     _Column("Visibility", missing=9999, warn_negative=True),
@@ -530,6 +555,13 @@ _COLUMNS = [
 _COL_YEAR, _COL_MINUTE, _COL_FLAGS = 0, 4, 5
 _COL_DRY_BULB, _COL_DEW_POINT, _COL_REL_HUMIDITY = 6, 7, 8
 _COL_WX_OBS, _COL_WX_CODES = 26, 27
+_COL_ALBEDO = 32
+
+# simien profile (SPEC.md section 11.1): one full year of hourly values,
+# 365 x 24, and what a missing albedo is filled with. The standard SIMIEN
+# station files carry that constant for the whole year.
+_SIMIEN_ROWS = 8760
+_SIMIEN_DEFAULT_ALBEDO = "0.20"
 
 
 def _is_nine_digits(s: str) -> bool:
@@ -568,8 +600,11 @@ def _same_time(a: _Stamp, b: _Stamp, with_year: bool) -> bool:
 
 
 class _Checker:
-    def __init__(self) -> None:
+    def __init__(self, opt: Optional["Options"] = None) -> None:
         self.rep = Report()
+        self.opt = opt or Options()
+        self.feb29 = 0  # rows for 29 February that the EPW rules allow
+        self.first_feb29 = 0
         self.leap_yes = False  # leap-year field is Yes
         self.per_hour = 1  # records per hour from DATA PERIODS
         self.periods: Optional[List[_Period]] = None  # None when DATA PERIODS could not be read
@@ -1037,6 +1072,10 @@ class _Checker:
             if n == 0:
                 continue
             self.rep.summary.missing[col.name] = n
+            # S-COL-1 replaces D-MIS-1 and D-MIS-2 for the columns it covers,
+            # so one missing column is reported once (SPEC.md section 11).
+            if self._simien_profile() and col.simien:
+                continue
             if col.core and n == self.rows_checked:
                 self._err("D-MIS-1", 0, i, col.name, "",
                           f"{col.name} is missing on every row; the file cannot be used for simulation")
@@ -1046,6 +1085,64 @@ class _Checker:
                            f"{self.first_missing[i]}); many viewers plot missing codes as real values")
             elif n == self.rows_checked:
                 self._warn("D-MIS-3", 0, i, col.name, "", f"{col.name} is missing on every row")
+        self._finish_simien()
+
+    # -- the simien profile (SPEC.md section 11.1) --
+
+    def _simien_profile(self) -> bool:
+        return self.opt.profile == PROFILE_SIMIEN
+
+    def _finish_simien(self) -> None:
+        """Can this EPW become a SIMIEN hourly climate file? A different
+        question from "is this a correct EPW", so these rules are opt-in and
+        never change the default report.
+
+        The target is a 12-column CSV holding one full year. Two of its
+        columns, solar altitude and azimuth, are computed from the LOCATION
+        coordinates and are not carried by the EPW. The rest are read straight
+        across -- which is why a missing value matters here and not in an EPW:
+        the CSV has no missing code, so an unfilled hour is read as a real
+        number."""
+        if not self._simien_profile():
+            return
+
+        for i, col in enumerate(_COLUMNS):
+            n = self.missing[i]
+            if n == 0 or not col.simien:
+                continue
+            self._err("S-COL-1", self.first_missing[i], i, col.name, "",
+                      f"{col.name} is missing on {n} of {self.rows_checked} rows (first at line "
+                      f"{self.first_missing[i]}); a SIMIEN climate file has no missing code, so the missing "
+                      "hours would be read as real values")
+
+        # Albedo is a ground property, not weather, and the standard station
+        # files carry one constant for the year -- so a missing value has an
+        # answer, and refusing a year of good weather over it would be the rule
+        # biting the wrong case.
+        n = self.missing[_COL_ALBEDO]
+        if n > 0:
+            self._warn("S-ALB-1", self.first_missing[_COL_ALBEDO], _COL_ALBEDO, _COLUMNS[_COL_ALBEDO].name, "",
+                       f"albedo is missing on {n} of {self.rows_checked} rows (first at line "
+                       f"{self.first_missing[_COL_ALBEDO]}); it will be filled with {_SIMIEN_DEFAULT_ALBEDO}")
+
+        if self.feb29 > 0:
+            self._err("S-LEAP-1", self.first_feb29, 2, "Day", "29",
+                      f"the file has {self.feb29} rows for 29 February (first at line {self.first_feb29}); "
+                      "a SIMIEN climate file numbers days 1-365")
+
+        if self.per_hour != 1:
+            self._err("S-RATE-1", 0, -1, "", "",
+                      f"DATA PERIODS declares {self.per_hour} records per hour; a SIMIEN climate file is hourly, "
+                      "and EPW radiation is Wh/m2 per record, which equals W/m2 only at one record per hour")
+
+        # Counted in rows rather than periods: how the year is split across
+        # DATA PERIODS is the EPW rules' business (section 7), not this
+        # profile's.
+        rows = self.rep.summary.data_rows
+        if rows != _SIMIEN_ROWS:
+            self._err("S-ROWS-1", 0, -1, "", "",
+                      f"the file has {rows} data rows; a SIMIEN climate file is one full year, "
+                      f"{_SIMIEN_ROWS} hourly rows")
 
     def _check_time(self, ln: int, t: List[int]) -> None:
         y, m, d, h, minute = t
@@ -1057,10 +1154,15 @@ class _Checker:
                       "month, hour 1-24)")
             self._seq_blind()
             return
-        if m == 2 and d == 29 and not (self.leap_yes and _is_leap(y)):
-            reason = f"{y} is not a leap year" if self.leap_yes else "the leap-year field is No"
-            self._err("D-SEQ-5", ln, 2, "Day", "29", f"row for 29 February, but {reason}")
-            return  # not part of the time sequence
+        if m == 2 and d == 29:
+            if not (self.leap_yes and _is_leap(y)):
+                reason = f"{y} is not a leap year" if self.leap_yes else "the leap-year field is No"
+                self._err("D-SEQ-5", ln, 2, "Day", "29", f"row for 29 February, but {reason}")
+                return  # not part of the time sequence
+            # Allowed by the EPW rules; counted for S-LEAP-1 (SPEC.md 11.1).
+            if self.feb29 == 0:
+                self.first_feb29 = ln
+            self.feb29 += 1
         step = 1
         if self.per_hour == 1:
             if minute < 0 or minute > 60:
@@ -1226,18 +1328,31 @@ class _Checker:
 def main(argv: Optional[List[str]] = None) -> int:
     args = sys.argv[1:] if argv is None else argv
     as_json = False
+    profile_name = ""
     paths = []
+    expect_profile = False
     for a in args:
-        if a in ("--json", "-json"):
+        if expect_profile:
+            profile_name, expect_profile = a, False
+        elif a in ("--json", "-json"):
             as_json = True
+        elif a in ("--profile", "-profile"):
+            expect_profile = True
+        elif a.startswith("--profile=") or a.startswith("-profile="):
+            profile_name = a.split("=", 1)[1]
         elif a in ("-h", "--help", "-help"):
             paths = []
             break
         else:
             paths.append(a)
     if not paths:
-        print("usage: epwvalidate [--json] file.epw [more.epw ...]", file=sys.stderr)
+        print("usage: epwvalidate [--json] [--profile simien] file.epw [more.epw ...]", file=sys.stderr)
         return 2
+    profile = parse_profile(profile_name)
+    if profile is None:
+        print(f'unknown profile "{profile_name}" (known profiles: simien)', file=sys.stderr)
+        return 2
+    opt = Options(profile)
     try:
         sys.stdout.reconfigure(encoding="utf-8", newline="\n")  # type: ignore[attr-defined]
     except (AttributeError, ValueError):
@@ -1247,7 +1362,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     reports = []
     for path in paths:
         try:
-            rep = validate_file(path)
+            rep = validate_file(path, opt)
         except OSError as e:
             print(f"{path}: {e}", file=sys.stderr)
             code = 2

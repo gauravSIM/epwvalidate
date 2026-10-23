@@ -46,11 +46,31 @@ export interface Report {
 /** How many issues of one rule are listed in a report. */
 export const MAX_ISSUES_PER_RULE: number;
 
+/** The EPW rules alone: is this a correct EPW file. */
+export const PROFILE_NONE: '';
+/** Also: can the file become a SIMIEN hourly climate file (SPEC.md §11.1). */
+export const PROFILE_SIMIEN: 'simien';
+
+/** An opt-in set of extra rules for one consumer of the file (SPEC.md §11). */
+export type Profile = typeof PROFILE_NONE | typeof PROFILE_SIMIEN;
+
+/** Changes what a validation run checks. The default is the EPW rules alone. */
+export interface Options {
+  /** A consumer's rules, added on top of the EPW rules. Never removes or weakens one. */
+  profile?: Profile;
+}
+
+/**
+ * Turns a profile name into a profile, or null when it is unknown. The empty string gives
+ * PROFILE_NONE. Names are matched case-insensitively.
+ */
+export function parseProfile(name: string): Profile | null;
+
 /** Validates the EPW file at path. Throws only if the file cannot be read. */
-export function validateFile(path: string): Report;
+export function validateFile(path: string, options?: Options): Report;
 
 /** Validates the content of an EPW file. */
-export function validate(data: Uint8Array | string): Report;
+export function validate(data: Uint8Array | string, options?: Options): Report;
 
 /** Formats one issue as "line 79, Dry Bulb Temperature: ... [D-RNG-1]". */
 export function formatIssue(issue: Issue): string;

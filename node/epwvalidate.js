@@ -35,17 +35,17 @@ const MAX_ISSUES_PER_RULE = 20;
  * the file's content are in the report.
  * @param {string} path
  */
-function validateFile(path) {
-  return validate(fs.readFileSync(path));
+function validateFile(path, options) {
+  return validate(fs.readFileSync(path), options);
 }
 
 /**
  * Validates the content of an EPW file.
  * @param {Uint8Array | string} data
  */
-function validate(data) {
+function validate(data, options) {
   const bytes = typeof data === 'string' ? Buffer.from(data, 'utf8') : Buffer.from(data.buffer, data.byteOffset, data.byteLength);
-  const c = new Checker();
+  const c = new Checker(options);
   c.run(bytes);
   c.rep.valid = c.rep.summary.errorCount === 0;
   return c.rep;
@@ -368,8 +368,11 @@ const periodLabel = (p) => p.name || 'unnamed';
 
 const NUM_FIELDS = 35;
 
-const col = (name, lo = null, hi = null, missing = 0, opts = {}) => ({ name, lo, hi, missing, core: !!opts.core, warnNegative: !!opts.warnNegative });
+const col = (name, lo = null, hi = null, missing = 0, opts = {}) => ({ name, lo, hi, missing, core: !!opts.core, simien: !!opts.simien, warnNegative: !!opts.warnNegative });
 const CORE = { core: true };
+// Core columns the simien profile also reads (SPEC.md section 11.1). Station
+// pressure is core but SIMIEN never reads it, so it stays plain CORE.
+const CORE_SIMIEN = { core: true, simien: true };
 const NEG = { warnNegative: true };
 
 const COLUMNS = [
@@ -379,22 +382,22 @@ const COLUMNS = [
   col('Hour'),
   col('Minute'),
   col('Data Source and Uncertainty Flags'),
-  col('Dry Bulb Temperature', gt(-70), lt(70), 99.9, CORE),
+  col('Dry Bulb Temperature', gt(-70), lt(70), 99.9, CORE_SIMIEN),
   col('Dew Point Temperature', gt(-70), lt(70), 99.9),
-  col('Relative Humidity', ge(0), le(110), 999, CORE),
+  col('Relative Humidity', ge(0), le(110), 999, CORE_SIMIEN),
   col('Atmospheric Station Pressure', gt(31000), lt(120000), 999999, CORE),
   col('Extraterrestrial Horizontal Radiation', ge(0), null, 9999),
   col('Extraterrestrial Direct Normal Radiation', ge(0), null, 9999),
   col('Horizontal Infrared Radiation Intensity', ge(0), null, 9999),
-  col('Global Horizontal Radiation', ge(0), null, 9999, CORE),
-  col('Direct Normal Radiation', ge(0), null, 9999, CORE),
-  col('Diffuse Horizontal Radiation', ge(0), null, 9999, CORE),
+  col('Global Horizontal Radiation', ge(0), null, 9999, CORE_SIMIEN),
+  col('Direct Normal Radiation', ge(0), null, 9999, CORE_SIMIEN),
+  col('Diffuse Horizontal Radiation', ge(0), null, 9999, CORE_SIMIEN),
   col('Global Horizontal Illuminance', ge(0), null, 999900),
   col('Direct Normal Illuminance', ge(0), null, 999900),
   col('Diffuse Horizontal Illuminance', ge(0), null, 999900),
   col('Zenith Luminance', ge(0), null, 9999),
-  col('Wind Direction', ge(0), le(360), 999, CORE),
-  col('Wind Speed', ge(0), le(40), 999, CORE),
+  col('Wind Direction', ge(0), le(360), 999, CORE_SIMIEN),
+  col('Wind Speed', ge(0), le(40), 999, CORE_SIMIEN),
   col('Total Sky Cover', ge(0), le(10), 99),
   col('Opaque Sky Cover', ge(0), le(10), 99),
   col('Visibility', null, null, 9999, NEG),
@@ -418,6 +421,29 @@ const COL_DEW_POINT = 7;
 const COL_REL_HUMIDITY = 8;
 const COL_WX_OBS = 26;
 const COL_WX_CODES = 27;
+const COL_ALBEDO = 32;
+
+// Profiles name an opt-in set of extra rules for one consumer of the file
+// (SPEC.md section 11). PROFILE_NONE checks the EPW rules only.
+const PROFILE_NONE = '';
+const PROFILE_SIMIEN = 'simien';
+const PROFILES = [PROFILE_NONE, PROFILE_SIMIEN];
+
+// simien profile: one full year of hourly values, 365 x 24, and what a missing
+// albedo is filled with. The standard SIMIEN station files carry that constant
+// for the whole year.
+const SIMIEN_ROWS = 8760;
+const SIMIEN_DEFAULT_ALBEDO = '0.20';
+
+/**
+ * Turns a profile name into a profile, or null when it is unknown. The empty
+ * string gives PROFILE_NONE. Names are matched case-insensitively.
+ * @param {string} name
+ */
+function parseProfile(name) {
+  const v = String(name || '').trim().toLowerCase();
+  return PROFILES.includes(v) ? v : null;
+}
 
 const isNineDigits = (s) => /^[0-9]{9}$/.test(s);
 
@@ -457,7 +483,10 @@ function isBlankBytes(b) {
 // ---- The checker ----
 
 class Checker {
-  constructor() {
+  constructor(options) {
+    this.opt = { profile: PROFILE_NONE, ...(options || {}) };
+    this.feb29 = 0; // rows for 29 February that the EPW rules allow
+    this.firstFeb29 = 0;
     this.rep = {
       valid: false,
       errors: [],
@@ -996,6 +1025,9 @@ class Checker {
       const n = this.missing[i];
       if (n === 0) return;
       this.rep.summary.missing[c.name] = n;
+      // S-COL-1 replaces D-MIS-1 and D-MIS-2 for the columns it covers, so one
+      // missing column is reported once (SPEC.md section 11).
+      if (this.simienProfile() && c.simien) return;
       if (c.core && n === this.rowsChecked) {
         this.err('D-MIS-1', 0, i, c.name, '', `${c.name} is missing on every row; the file cannot be used for simulation`);
       } else if (c.core) {
@@ -1004,6 +1036,56 @@ class Checker {
         this.warn('D-MIS-3', 0, i, c.name, '', `${c.name} is missing on every row`);
       }
     });
+    this.finishSimien();
+  }
+
+  simienProfile() {
+    return this.opt.profile === PROFILE_SIMIEN;
+  }
+
+  /**
+   * The simien profile (SPEC.md section 11.1): can this EPW become a SIMIEN
+   * hourly climate file? A different question from "is this a correct EPW", so
+   * these rules are opt-in and never change the default report.
+   *
+   * The target is a 12-column CSV holding one full year. Two of its columns,
+   * solar altitude and azimuth, are computed from the LOCATION coordinates and
+   * are not carried by the EPW. The rest are read straight across -- which is
+   * why a missing value matters here and not in an EPW: the CSV has no missing
+   * code, so an unfilled hour is read as a real number.
+   */
+  finishSimien() {
+    if (!this.simienProfile()) return;
+
+    COLUMNS.forEach((c, i) => {
+      const n = this.missing[i];
+      if (n === 0 || !c.simien) return;
+      this.err('S-COL-1', this.firstMissing[i], i, c.name, '', `${c.name} is missing on ${n} of ${this.rowsChecked} rows (first at line ${this.firstMissing[i]}); a SIMIEN climate file has no missing code, so the missing hours would be read as real values`);
+    });
+
+    // Albedo is a ground property, not weather, and the standard station files
+    // carry one constant for the year -- so a missing value has an answer, and
+    // refusing a year of good weather over it would be the rule biting the
+    // wrong case.
+    const alb = this.missing[COL_ALBEDO];
+    if (alb > 0) {
+      this.warn('S-ALB-1', this.firstMissing[COL_ALBEDO], COL_ALBEDO, COLUMNS[COL_ALBEDO].name, '', `albedo is missing on ${alb} of ${this.rowsChecked} rows (first at line ${this.firstMissing[COL_ALBEDO]}); it will be filled with ${SIMIEN_DEFAULT_ALBEDO}`);
+    }
+
+    if (this.feb29 > 0) {
+      this.err('S-LEAP-1', this.firstFeb29, 2, 'Day', '29', `the file has ${this.feb29} rows for 29 February (first at line ${this.firstFeb29}); a SIMIEN climate file numbers days 1-365`);
+    }
+
+    if (this.perHour !== 1) {
+      this.err('S-RATE-1', 0, -1, '', '', `DATA PERIODS declares ${this.perHour} records per hour; a SIMIEN climate file is hourly, and EPW radiation is Wh/m2 per record, which equals W/m2 only at one record per hour`);
+    }
+
+    // Counted in rows rather than periods: how the year is split across DATA
+    // PERIODS is the EPW rules' business (section 7), not this profile's.
+    const rows = this.rep.summary.dataRows;
+    if (rows !== SIMIEN_ROWS) {
+      this.err('S-ROWS-1', 0, -1, '', '', `the file has ${rows} data rows; a SIMIEN climate file is one full year, ${SIMIEN_ROWS} hourly rows`);
+    }
   }
 
   checkTime(ln, t) {
@@ -1014,10 +1096,15 @@ class Checker {
       this.seqBlind();
       return;
     }
-    if (m === 2 && d === 29 && !(this.leapYes && isLeap(y))) {
-      const reason = this.leapYes ? `${y} is not a leap year` : 'the leap-year field is No';
-      this.err('D-SEQ-5', ln, 2, 'Day', '29', `row for 29 February, but ${reason}`);
-      return; // not part of the time sequence
+    if (m === 2 && d === 29) {
+      if (!(this.leapYes && isLeap(y))) {
+        const reason = this.leapYes ? `${y} is not a leap year` : 'the leap-year field is No';
+        this.err('D-SEQ-5', ln, 2, 'Day', '29', `row for 29 February, but ${reason}`);
+        return; // not part of the time sequence
+      }
+      // Allowed by the EPW rules; counted for S-LEAP-1 (SPEC.md 11.1).
+      if (this.feb29 === 0) this.firstFeb29 = ln;
+      this.feb29++;
     }
     let step = 1;
     if (this.perHour === 1) {
@@ -1172,24 +1259,37 @@ class Checker {
 
 function main(args) {
   let asJSON = false;
+  let profileName = '';
   let paths = [];
+  let expectProfile = false;
   for (const a of args) {
-    if (a === '--json' || a === '-json') asJSON = true;
+    if (expectProfile) {
+      profileName = a;
+      expectProfile = false;
+    } else if (a === '--json' || a === '-json') asJSON = true;
+    else if (a === '--profile' || a === '-profile') expectProfile = true;
+    else if (a.startsWith('--profile=') || a.startsWith('-profile=')) profileName = a.slice(a.indexOf('=') + 1);
     else if (a === '-h' || a === '--help' || a === '-help') {
       paths = [];
       break;
     } else paths.push(a);
   }
   if (paths.length === 0) {
-    process.stderr.write('usage: epwvalidate [--json] file.epw [more.epw ...]\n');
+    process.stderr.write('usage: epwvalidate [--json] [--profile simien] file.epw [more.epw ...]\n');
     return 2;
   }
+  const profile = parseProfile(profileName);
+  if (profile === null) {
+    process.stderr.write(`unknown profile "${profileName}" (known profiles: simien)\n`);
+    return 2;
+  }
+  const opt = { profile };
   let code = 0;
   const reports = [];
   for (const path of paths) {
     let rep;
     try {
-      rep = validateFile(path);
+      rep = validateFile(path, opt);
     } catch (e) {
       process.stderr.write(`${path}: ${e.message}\n`);
       code = 2;
@@ -1203,7 +1303,7 @@ function main(args) {
   return code;
 }
 
-module.exports = { validate, validateFile, formatIssue, formatText, MAX_ISSUES_PER_RULE, main };
+module.exports = { validate, validateFile, formatIssue, formatText, parseProfile, PROFILE_NONE, PROFILE_SIMIEN, MAX_ISSUES_PER_RULE, main };
 
 if (require.main === module) {
   process.exitCode = main(process.argv.slice(2));

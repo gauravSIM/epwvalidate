@@ -33,6 +33,22 @@ class ConformanceTest(unittest.TestCase):
                 got = epwvalidate.validate_file(os.path.join(ROOT, path)).to_dict()
                 self.assertEqual(want, got)
 
+    def test_expected_simien_json(self):
+        """The simien profile (SPEC.md section 11.1) must match Go too."""
+        with open(os.path.join(ROOT, "testdata", "expected_simien.json"), encoding="utf-8") as f:
+            expected = json.load(f)
+        self.assertGreater(len(expected), 100)
+        opt = epwvalidate.Options(epwvalidate.PROFILE_SIMIEN)
+        for path, want in expected.items():
+            with self.subTest(path=path):
+                got = epwvalidate.validate_file(os.path.join(ROOT, path), opt).to_dict()
+                self.assertEqual(want, got)
+
+    def test_parse_profile(self):
+        self.assertEqual(epwvalidate.PROFILE_NONE, epwvalidate.parse_profile(""))
+        self.assertEqual(epwvalidate.PROFILE_SIMIEN, epwvalidate.parse_profile("  SIMIEN "))
+        self.assertIsNone(epwvalidate.parse_profile("energyplus"))
+
     def test_broken_results_text(self):
         with open(os.path.join(ROOT, "testdata", "expected.json"), encoding="utf-8") as f:
             paths = sorted(p for p in json.load(f) if p.startswith("testdata/broken/"))

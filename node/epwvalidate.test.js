@@ -22,6 +22,22 @@ test('every test file gives the expected result', () => {
   }
 });
 
+test('the simien profile gives the expected result', () => {
+  // SPEC.md section 11.1. Go is the reference here too.
+  const want = JSON.parse(fs.readFileSync(path.join(ROOT, 'testdata', 'expected_simien.json'), 'utf8'));
+  const files = Object.keys(want);
+  assert.ok(files.length > 100);
+  for (const f of files) {
+    assert.deepStrictEqual(epw.validateFile(path.join(ROOT, f), { profile: epw.PROFILE_SIMIEN }), want[f], f);
+  }
+});
+
+test('parseProfile', () => {
+  assert.strictEqual(epw.parseProfile(''), epw.PROFILE_NONE);
+  assert.strictEqual(epw.parseProfile('  SIMIEN '), epw.PROFILE_SIMIEN);
+  assert.strictEqual(epw.parseProfile('energyplus'), null);
+});
+
 test('text output matches broken_results.txt', () => {
   const files = Object.keys(expected).filter((f) => f.startsWith('testdata/broken/')).sort();
   let text = '';

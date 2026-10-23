@@ -38,6 +38,21 @@ var mismatches = expected
 Check($"every test file gives the expected result ({expected.Count} files)", expected.Count > 100 && mismatches.Count == 0,
     string.Join("\n", mismatches.Take(10).Select(m => "  differs: " + m)));
 
+var simienOpt = new EpwValidator.Options(EpwValidator.Profile.Simien);
+var expectedSimien = JsonNode.Parse(File.ReadAllText(Path.Combine(root, "testdata", "expected_simien.json")))!.AsObject();
+var simienMismatches = expectedSimien
+    .Where(kv => !JsonNode.DeepEquals(kv.Value, JsonNode.Parse(EpwValidator.ValidateFile(Path.Combine(root, kv.Key), simienOpt).ToJson())))
+    .Select(kv => kv.Key)
+    .ToList();
+Check($"the simien profile gives the expected result ({expectedSimien.Count} files)",
+    expectedSimien.Count > 100 && simienMismatches.Count == 0,
+    string.Join("\n", simienMismatches.Take(10).Select(m => "  differs: " + m)));
+
+Check("ParseProfile",
+    EpwValidator.ParseProfile("") == EpwValidator.Profile.None
+    && EpwValidator.ParseProfile("  SIMIEN ") == EpwValidator.Profile.Simien
+    && EpwValidator.ParseProfile("energyplus") is null);
+
 var text = string.Concat(expected
     .Select(kv => kv.Key)
     .Where(p => p.StartsWith("testdata/broken/", StringComparison.Ordinal))
